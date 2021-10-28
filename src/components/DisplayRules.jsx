@@ -11,21 +11,21 @@ import Rules2 from './Rules2';
 import Rules3 from './Rules3';
 import Username from './Username';
 
-const DisplayRules = () => {
+const DisplayRules = ({ onNameSelected }) => {
   return (
     <div id="display-rules">
       <div className="div-surname-rules">
-        <Username />
+        <Username  onNameSelected={onNameSelected} />
         <div className="barre-button">
           <Router>
             <div>
               <Switch>
-                <Route exact path="/" component={Rules1} />
+                <Route exact path="/home" component={Rules1} />
                 <Route path="/rules2" component={Rules2} />
                 <Route path="/rules3" component={Rules3} />
               </Switch>
               <nav className="container-button">
-                <NavLink exact activeClassName="active" to="/">
+                <NavLink exact activeClassName="active" to="/home">
                   <RadioButtonCheckedIcon />
                 </NavLink>
                 <NavLink activeClassName="active" to="/rules2">

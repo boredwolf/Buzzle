@@ -84,6 +84,11 @@ h3 {
   color: #ff00ae;
 }
 
+/*Username*/
+
+.username{
+ display: flex;
+}
 /* Welcome */
 
 .welcome-container1 {

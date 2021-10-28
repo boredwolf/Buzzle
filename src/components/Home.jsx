@@ -1,16 +1,18 @@
+import { useState } from 'react';
 import logo from '../assets/images/logo-violet.png';
 import DisplayRules from './DisplayRules';
 
 const Home = () => {
+  const [name, setName] = useState("?")
   return (
     <div>
       <div id="logo">
         <img className="logo" src={logo} alt="logo Buzzle" />
       </div>
       <div className="hello-user">
-        <h2>Hello $User !</h2>
+        <h2>Hello {name}!</h2>
       </div>
-      <DisplayRules />
+      <DisplayRules onNameSelected={(name) => setName(name)} />
     </div>
   );
 };

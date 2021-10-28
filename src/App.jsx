@@ -5,6 +5,7 @@ import Questions from './components/Questions';
 import Endgame from './components/Endgame';
 import Scores from './components/Scores';
 import Welcome from './components/Welcome';
+import Namegenerator from './components/Namegenerator';
 
 function App() {
   return (
