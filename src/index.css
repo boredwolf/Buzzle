@@ -84,6 +84,47 @@ h3 {
   color: #ff00ae;
 }
 
+/* Welcome */
+
+.welcome-container1 {
+  display: flex;
+  flex-direction: column;
+  height: 506px;
+}
+
+.welcome-container2 {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.welcome-container3 {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-logo {
+  width: 50%;
+}
+
+.play-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.play-button {
+  border: 5px solid white;
+  border-radius: 15px;
+  color: white;
+  margin: 20px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  background-color: #8e017a;
+  font-family: var(--font-second);
+  font-size: 20px;
+  font-weight: bold;
+}
 
 /* CSS Questions */
 
