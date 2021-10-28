@@ -1,0 +1,83 @@
+:root {
+  --color-primary: #2e3192;
+  --color-second: #ffffff;
+  --font-primary: 'Roboto', sans-serif;
+  --font-second: 'Alfa Slab One', cursive;
+}
+
+* {
+  box-sizing: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  background: linear-gradient(45deg, #8e017a, #290180);
+}
+.logo {
+  width: 200px;
+}
+h2 {
+  font-family: var(--font-second);
+  font-size: 2.2em;
+  color: var(--color-second);
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+h3 {
+  font-family: var(--font-second);
+  font-size: 1.7em;
+}
+
+.div-surname-rules {
+  display: flex;
+  justify-content: center;
+}
+
+.list-theme {
+  font-family: var(--font-primary);
+  font-size: 1.5em;
+  padding: 4px;
+  list-style: none;
+  margin: 5px 40px 5px 40px;
+}
+
+.ul-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+.div-rules {
+  width: 500px;
+  height: 506px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgba(222, 210, 40, 0.15);
+  flex-direction: column;
+  color: var(--color-second);
+  align-items: center;
+  border-radius: 30px;
+  border: 5px solid var(--color-second);
+}
+
+.rules-title {
+  color: var(--color-second);
+}
+
+.container-button {
+  display: flex;
+  justify-content: center;
+  color: var(--color-second);
+  bottom: 35px;
+  position: relative;
+}
+
+.MuiSvgIcon-root {
+  color: var(--color-second);
+}
+
+.active svg {
+  color: #ff00ae;
+}
