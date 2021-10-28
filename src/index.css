@@ -30,6 +30,8 @@ h3 {
   font-size: 1.7em;
 }
 
+
+/* CSS Rules*/
 .div-surname-rules {
   display: flex;
   justify-content: center;
@@ -80,4 +82,22 @@ h3 {
 
 .active svg {
   color: #ff00ae;
+}
+
+
+/* CSS Questions */
+
+/* CSS Timer */
+
+.timer {
+    font-family: var(--font-primary);
+    font-size: 1.7em;
+    color: var(--color-second);
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgba(222, 210, 40, 0);
+    border: 3px solid var(--color-second);
+    position: relative;
+    left: 500px;
 }

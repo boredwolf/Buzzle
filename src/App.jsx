@@ -9,14 +9,11 @@ import Welcome from './components/Welcome';
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Questions />
-      </div>
       <Switch>
-        <Route path="/welcome">
+        <Route exact path="/">
           <Welcome />
         </Route>
-        <Route exact path="/">
+        <Route path="/home">
           <Home />
         </Route>
         <Route path="/questions">

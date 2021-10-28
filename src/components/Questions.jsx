@@ -40,13 +40,13 @@ function Questions() {
   };
 
   return (
-    <div className="Questions">
+    <div className="questions">
       <Button variant="contained" onClick={loadQuestions}>
         Play
       </Button>
       {loaded && (
-        <div>
-          <p className="Question">{questions[qInd].question}</p>
+        <div className="container-question">
+          <p className="question">{questions[qInd].question}</p>
           {questions[qInd].incorrect_answers.map((a) => {
             return (
               <Button
