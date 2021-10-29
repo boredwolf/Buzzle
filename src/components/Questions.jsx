@@ -35,7 +35,6 @@ function Questions() {
       );
       setQInd(qInd + 1);
     } else {
-      loadQuestions();
       setQInd(0);
     }
   };
@@ -46,7 +45,7 @@ function Questions() {
         <div id="logo-questions">
           <img className="logo" src={logo} alt="logo Buzzle" />
         </div>
-        <p>
+        <p class="num-questions">
           Question {qInd + 1} / {questions.length}
         </p>
         {loaded && (
