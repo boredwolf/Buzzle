@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react';
-import Button from '@mui/material/Button';
+import logo from '../assets/images/logo-violet.png';
+
 
 function Questions() {
   const url = 'https://opentdb.com/api.php?amount=10';
@@ -7,18 +8,19 @@ function Questions() {
   const [loaded, setLoaded] = useState(false);
   const [qInd, setQInd] = useState(0);
 
-  const loadQuestions = async () => {
-    let response = fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        insertCorr(
-          data.results[0].incorrect_answers,
-          data.results[0].correct_answer
-        );
-        setQuestions(data.results);
-        setLoaded(true);
-      });
-  };
+  useEffect(() => {
+    fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      insertCorr(
+        data.results[0].incorrect_answers,
+        data.results[0].correct_answer
+      );
+      setQuestions(data.results);
+      setLoaded(true);
+    });
+  }, [])
+ 
 
   function insertCorr(arr, corr) {
     const randInd = Math.floor(Math.random() * 4);
@@ -40,26 +42,39 @@ function Questions() {
   };
 
   return (
-    <div className="questions">
-      <Button variant="contained" onClick={loadQuestions}>
-        Play
-      </Button>
+    <div className="QuestionsContainer">
+    <div className="Questions">
+    <div id="logo-questions">
+        <img className="logo" src={logo} alt="logo Buzzle" />
+      </div>
+      <p>
+        Question {qInd+1} / {questions.length}
+      </p>
       {loaded && (
-        <div className="container-question">
-          <p className="question">{questions[qInd].question}</p>
+        <div className="QandAContainer">
+          <h1
+            className="Question"
+            dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
+          ></h1>
+          <div className="ButtonContainer">
           {questions[qInd].incorrect_answers.map((a) => {
             return (
-              <Button
-                variant="outlined"
-                key={a}
-                onClick={(e) => handleButton(e, a)}
-              >
-                {a}
-              </Button>
+              <div className="ResponseButton">
+                <button 
+                  variant="contained"
+                  key={a}
+                  onClick={(e) => handleButton(e, a)}
+                >
+                  {a}
+                </button>
+              </div>
+              
             );
           })}
+          </div>
         </div>
       )}
+    </div>
     </div>
   );
 }

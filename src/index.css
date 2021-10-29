@@ -9,10 +9,12 @@
   box-sizing: 0;
   margin: 0;
   padding: 0;
+  color: white;
 }
 
 #root {
   background: linear-gradient(45deg, #8e017a, #290180);
+  height: 100vh;
 }
 .logo {
   width: 200px;
@@ -29,7 +31,6 @@ h3 {
   font-family: var(--font-second);
   font-size: 1.7em;
 }
-
 
 /* CSS Rules*/
 .div-surname-rules {
@@ -84,11 +85,77 @@ h3 {
   color: #ff00ae;
 }
 
+
+/***** CSS for Questions component ********/
+
+.Questions {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(222, 210, 40, 0.15);
+  border-radius: 30px;
+  border: 5px solid var(--color-second);
+}
+
+.Question {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  width: 100%;
+}
+
+#logo-questions{
+  width: 200px;
+  padding-bottom: 70px;
+}
+
+.PlayQuestions {
+  width: 15%;
+  margin: 20px;
+}
+.QuestionsContainer {
+  display: flex;
+  width: 70vw;
+  height: 100vh;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+button {
+  padding: 20px;
+  width: 20vw;
+  margin: 20px 20px 20px 20px;
+  border-radius: 10px;
+  background-color: #2e8efc;
+  border: 2px solid white;
+  font-size: 1rem;
+}
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 75%;
+  align-items: center;
+}
+.QandAContainer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+/***** END of CSS for Questions component ********/
+
 /*Username*/
 
-.username{
+.username {
  display: flex;
 }
+
 /* Welcome */
 
 .welcome-container1 {
@@ -136,14 +203,14 @@ h3 {
 /* CSS Timer */
 
 .timer {
-    font-family: var(--font-primary);
-    font-size: 1.7em;
-    color: var(--color-second);
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: rgba(222, 210, 40, 0);
-    border: 3px solid var(--color-second);
-    position: relative;
-    left: 500px;
+  font-family: var(--font-primary);
+  font-size: 1.7em;
+  color: var(--color-second);
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgba(222, 210, 40, 0);
+  border: 3px solid var(--color-second);
+  position: relative;
+  left: 500px;
 }

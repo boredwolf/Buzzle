@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Questions from './components/Questions';
 import Endgame from './components/Endgame';
@@ -17,8 +17,7 @@ function App() {
         <Route path="/home">
           <Home />
         </Route>
-        <Route path="/questions">
-          <Questions />
+        <Route path="/questions" component={Questions}>
         </Route>
         <Route path="/endgame">
           <Endgame />
