@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../assets/images/logo-violet.png';
 import { NavLink } from 'react-router-dom';
+import logo from '../assets/images/logo-violet.png';
 
 const Welcome = () => {
   return (

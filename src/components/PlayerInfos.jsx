@@ -1,11 +1,7 @@
 import React from 'react';
-import './App.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-{
-  /* Adèle */
-}
 const PlayerInfos = () => {
   return (
     <div className="player-infos-container1">
@@ -16,8 +12,6 @@ const PlayerInfos = () => {
         <ul>
           <li>Score: 300 points</li>
         </ul>
-
-        {/* icons MUI */}
         <ul>
           <li>
             <FavoriteIcon />

@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import logo from '../assets/images/logo-violet.png';
-
+import PlayerInfos from './PlayerInfos';
 
 function Questions() {
   const url = 'https://opentdb.com/api.php?amount=10';
@@ -10,17 +10,16 @@ function Questions() {
 
   useEffect(() => {
     fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      insertCorr(
-        data.results[0].incorrect_answers,
-        data.results[0].correct_answer
-      );
-      setQuestions(data.results);
-      setLoaded(true);
-    });
-  }, [])
- 
+      .then((response) => response.json())
+      .then((data) => {
+        insertCorr(
+          data.results[0].incorrect_answers,
+          data.results[0].correct_answer
+        );
+        setQuestions(data.results);
+        setLoaded(true);
+      });
+  }, []);
 
   function insertCorr(arr, corr) {
     const randInd = Math.floor(Math.random() * 4);
@@ -43,38 +42,38 @@ function Questions() {
 
   return (
     <div className="QuestionsContainer">
-    <div className="Questions">
-    <div id="logo-questions">
-        <img className="logo" src={logo} alt="logo Buzzle" />
-      </div>
-      <p>
-        Question {qInd+1} / {questions.length}
-      </p>
-      {loaded && (
-        <div className="QandAContainer">
-          <h1
-            className="Question"
-            dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
-          ></h1>
-          <div className="ButtonContainer">
-          {questions[qInd].incorrect_answers.map((a) => {
-            return (
-              <div className="ResponseButton">
-                <button 
-                  variant="contained"
-                  key={a}
-                  onClick={(e) => handleButton(e, a)}
-                >
-                  {a}
-                </button>
-              </div>
-              
-            );
-          })}
-          </div>
+      <div className="Questions">
+        <div id="logo-questions">
+          <img className="logo" src={logo} alt="logo Buzzle" />
         </div>
-      )}
-    </div>
+        <p>
+          Question {qInd + 1} / {questions.length}
+        </p>
+        {loaded && (
+          <div className="QandAContainer">
+            <h1
+              className="Question"
+              dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
+            ></h1>
+            <div className="ButtonContainer">
+              {questions[qInd].incorrect_answers.map((a) => {
+                return (
+                  <div className="ResponseButton">
+                    <button
+                      variant="contained"
+                      key={a}
+                      onClick={(e) => handleButton(e, a)}
+                    >
+                      {a}
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </div>
+      <PlayerInfos />
     </div>
   );
 }
