@@ -9,7 +9,6 @@
   box-sizing: 0;
   margin: 0;
   padding: 0;
-  color: white;
 }
 
 #root {
@@ -46,12 +45,20 @@ h3 {
   margin: 5px 40px 5px 40px;
 }
 
+.random-username {
+  font-family: var(--font-primary);
+  font-size: 1.5em;
+  padding: 4px;
+  margin: 5px 40px 5px 40px;
+}
+
 .ul-list {
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-bottom: 20px;
 }
+
 .div-rules {
   width: 500px;
   height: 506px;
@@ -133,7 +140,13 @@ button {
   background-color: #2e8efc;
   border: 2px solid white;
   font-size: 1rem;
+  color:  var(--color-second);
 }
+
+.button-pickit {
+  width: 100px;
+}
+
 .ButtonContainer {
   display: flex;
   justify-content: center;
@@ -182,7 +195,10 @@ button {
   display: flex;
   justify-content: center;
 }
-
+a {
+  color: var(--color-second);
+  text-decoration: none;
+}
 .play-button {
   border: 5px solid white;
   border-radius: 15px;
@@ -225,7 +241,7 @@ button {
     width: 40%;
     border: 5px solid white;
     border-radius: 15px;
-    color: white;
+    color: var(--color-second);
     margin: 20px;
   }
   .player-infos-container2, ul{

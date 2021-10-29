@@ -2,7 +2,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NavLink, Link
+  NavLink,
+  Link,
 } from 'react-router-dom';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
@@ -15,7 +16,7 @@ const DisplayRules = ({ onNameSelected }) => {
   return (
     <div id="display-rules">
       <div className="div-surname-rules">
-        <Username  onNameSelected={onNameSelected} />
+        <Username onNameSelected={onNameSelected} />
         <div className="barre-button">
           <Router>
             <div>
@@ -39,9 +40,6 @@ const DisplayRules = ({ onNameSelected }) => {
           </Router>
         </div>
       </div>
-      <div className="play-button-container">
-      <button className="play-button"><Link to="/Questions">PLAY !</Link></button>
-    </div>
     </div>
   );
 };
