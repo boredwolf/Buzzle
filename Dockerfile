@@ -1,15 +1,15 @@
 # build environment
 FROM node:lts-alpine as builder
 
-RUN mkdir /usr/src/app
+RUN mkdir /app
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+ENV PATH /app/node_modules/.bin:$PATH
 ARG REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 ENV REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 
-COPY . /usr/src/app
+COPY . /app
 
 RUN npm install
 RUN npm run build
@@ -21,7 +21,7 @@ RUN rm -rf /etc/nginx/conf.d && \
     mkdir -p /etc/nginx/conf.d
 
 COPY ./default.conf /etc/nginx/conf.d/
-COPY --from=builder /usr/src/app/build /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
 
 EXPOSE 3000
 
