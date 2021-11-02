@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import logo from '../assets/images/logo-violet.png';
 import PlayerInfos from './PlayerInfos';
 
-function Questions() {
+function Questions( { username }) {
   const url = 'https://opentdb.com/api.php?amount=10';
   const [questions, setQuestions] = useState([]);
   const [loaded, setLoaded] = useState(false);
@@ -72,7 +72,7 @@ function Questions() {
           </div>
         )}
       </div>
-      <PlayerInfos />
+      <PlayerInfos username={username} />
     </div>
   );
 }
