@@ -72,6 +72,7 @@ function Questions() {
           </div>
         )}
       </div>
+      
       <PlayerInfos />
     </div>
   );

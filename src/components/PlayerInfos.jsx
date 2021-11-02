@@ -1,6 +1,7 @@
 import React from 'react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Link } from 'react-router-dom';
 
 const PlayerInfos = () => {
   return (
@@ -21,6 +22,11 @@ const PlayerInfos = () => {
           </li>
           <li>
             <FavoriteBorderIcon />
+          </li>
+          <li>
+            <button>
+              <Link to="/Home">Exit</Link>
+            </button>
           </li>
         </ul>
       </div>
