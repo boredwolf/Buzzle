@@ -1,4 +1,4 @@
-# build environment
+# Build REACT APP
 FROM node:lts-alpine as builder
 
 RUN mkdir /app
@@ -14,13 +14,8 @@ COPY . /app
 RUN npm install
 RUN npm run build
 
-# production environment
+# Copy builded REACT app to nginx container
 FROM nginx:1.13.9-alpine
-
-RUN rm -rf /etc/nginx/conf.d && \
-    mkdir -p /etc/nginx/conf.d
-
-COPY ./default.conf /etc/nginx/conf.d/
 COPY --from=builder /app/build /usr/share/nginx/html
 
 EXPOSE 3000
