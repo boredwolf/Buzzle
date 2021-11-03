@@ -45,9 +45,9 @@ function Questions( { username }) {
         <div id="logo-questions">
           <img className="logo" src={logo} alt="logo Buzzle" />
         </div>
-        <p class="num-questions">
+        <div class="num-questions">
           Question {qInd + 1} / {questions.length}
-        </p>
+        </div>
         {loaded && (
           <div className="QandAContainer">
             <h1
