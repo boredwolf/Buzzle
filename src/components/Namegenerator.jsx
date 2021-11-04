@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { animalArray, adjectifArray } from './Names';
 import { Button } from '@mui/material';
+import Avatar from './Avatar';
 
 const Namegenerator = ({ onNameSelected }) => {
   const [name, setName] = useState('?');
@@ -22,6 +23,7 @@ const Namegenerator = ({ onNameSelected }) => {
   }
   return (
     <>
+      <Avatar randomName={randomName } />
       <div className="username">
         <p className="random-username">{randomName}</p>{' '}
         {randomName && (

@@ -1,9 +1,5 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
   Link,
 } from 'react-router-dom';
 import Namegenerator from './Namegenerator';

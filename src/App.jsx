@@ -27,7 +27,7 @@ function App() {
           <Questions  username={username} />
         </Route>
         <Route path="/endgame">
-          <Endgame />
+          <Endgame username={username}/>
         </Route>
         <Route path="/scores">
           <Scores />

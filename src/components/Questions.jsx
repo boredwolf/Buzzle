@@ -1,8 +1,9 @@
 import { React, useState, useEffect } from 'react';
 import logo from '../assets/images/logo-violet.png';
 import PlayerInfos from './PlayerInfos';
+import { NavLink } from 'react-router-dom';
 
-function Questions( { username }) {
+function Questions({ username }) {
   const url = 'https://opentdb.com/api.php?amount=10';
   const [questions, setQuestions] = useState([]);
   const [loaded, setLoaded] = useState(false);
@@ -35,7 +36,7 @@ function Questions( { username }) {
       );
       setQInd(qInd + 1);
     } else {
-      setQInd(0);
+      setQInd(1000);
     }
   };
 
@@ -45,30 +46,43 @@ function Questions( { username }) {
         <div id="logo-questions">
           <img className="logo" src={logo} alt="logo Buzzle" />
         </div>
-        <div class="num-questions">
-          Question {qInd + 1} / {questions.length}
-        </div>
-        {loaded && (
-          <div className="QandAContainer">
-            <h1
-              className="Question"
-              dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
-            ></h1>
-            <div className="ButtonContainer">
-              {questions[qInd].incorrect_answers.map((a) => {
-                return (
-                  <div className="ResponseButton">
-                    <button
-                      variant="contained"
-                      key={a}
-                      onClick={(e) => handleButton(e, a)}
-                    >
-                      {a}
-                    </button>
-                  </div>
-                );
-              })}
+        {!loaded ? (
+          <div>
+            <p>Chargement</p>
+          </div>
+        ) : loaded && qInd < questions.length ? (
+          <>
+            <p class="num-questions">
+              Question {qInd + 1} / {questions.length}
+            </p>
+            <div className="QandAContainer">
+              <h1
+                className="Question"
+                dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
+              ></h1>
+              <div className="ButtonContainer">
+                {questions[qInd].incorrect_answers.map((a) => {
+                  return (
+                    <div>
+                      <button
+                        className="ResponseButton"
+                        variant="contained"
+                        key={a}
+                        onClick={(e) => handleButton(e, a)}
+                      >
+                        {a}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
+          </>
+        ) : (
+          <div className="end-button-container">
+            <NavLink exact to="/endgame">
+              <button className="end-button">End of the Game</button>
+            </NavLink>
           </div>
         )}
       </div>
