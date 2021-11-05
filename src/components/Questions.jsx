@@ -28,6 +28,7 @@ function Questions({ username }) {
         setLoaded(true);
       });
   }, []);
+
   useEffect(() => {
     setClassName();
   }, [qInd]);
@@ -60,37 +61,33 @@ function Questions({ username }) {
             <p>Chargement</p>
           </div>
         ) : loaded && qInd < questions.length ? (
-          <div>
-            <div className="QandAContainer">
-              <h1
-                className="Question"
-                dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
-              ></h1>
-              <div className="ButtonContainer">
-                {questions[qInd].incorrect_answers.map((a) => {
-                  return (
-                    <div className="ResponseButton">
-                      <button
-                        key={a}
-                        onClick={(e) => {
-                          setTimeout(() => {
-                            handleButton(e, a);
-                          }, 2000);
-                          if (a === questions[qInd].correct_answer) {
-                            setClassName('green-button');
-                            setScore(score + 100);
-                          } else {
-                            setClassName('red-button');
-                          }
-                        }}
-                        className={className}
-                      >
-                        {a}
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
+          <div className="QandAContainer">
+            <h1
+              className="Question"
+              dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
+            ></h1>
+            <div className="ButtonContainer">
+              {questions[qInd].incorrect_answers.map((a) => {
+                return (
+                  <button
+                    key={a}
+                    onClick={(e) => {
+                      setTimeout(() => {
+                        handleButton(e, a);
+                      }, 2000);
+                      if (a === questions[qInd].correct_answer) {
+                        setClassName('green-button');
+                        setScore(score + 100);
+                      } else {
+                        setClassName('red-button');
+                      }
+                    }}
+                    className={className}
+                  >
+                    {a}
+                  </button>
+                );
+              })}
             </div>
           </div>
         ) : (
