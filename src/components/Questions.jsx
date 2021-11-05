@@ -2,9 +2,6 @@ import { React, useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/images/logo-violet.png';
 import PlayerInfos from './PlayerInfos';
-import { NavLink } from 'react-router-dom';
-import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
-import { Link } from 'react-router-dom';
 
 
 function Questions({ username }) {
@@ -12,13 +9,8 @@ function Questions({ username }) {
   const [questions, setQuestions] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [qInd, setQInd] = useState(0);
-  const [className, setClassName] = useState();
+  const [idName, setIdName] = useState();
   const [score, setScore] = useState(0);
-
-  function insertCorr(arr, corr) {
-    const randInd = Math.floor(Math.random() * 4);
-    arr.splice(randInd, 0, corr);
-  }
 
   useEffect(() => {
     fetch(url)
@@ -33,8 +25,13 @@ function Questions({ username }) {
       });
   }, []);
   useEffect(() => {
-    setClassName();
+    setIdName();
   }, [qInd]);
+
+  function insertCorr(arr, corr) {
+    const randInd = Math.floor(Math.random() * 4);
+    arr.splice(randInd, 0, corr);
+  }
 
   const handleButton = (e, ans) => {
     e.preventDefault();
@@ -45,7 +42,7 @@ function Questions({ username }) {
       );
       setQInd(qInd + 1);
     } else {
-      setQInd(1000);
+      setQInd(0);
     }
   };
 
@@ -55,65 +52,57 @@ function Questions({ username }) {
         <div id="logo-questions">
           <img className="logo" src={logo} alt="logo Buzzle" />
         </div>
-
-        <div className="num-questions">
+        <div class="num-questions">
           Question {qInd + 1} / {questions.length}
         </div>
+
         {!loaded ? (
           <div>
-            <p>Chargement</p>
-          </div>
-        ) : loaded && qInd < questions.length ? (
-          <>
-            <p class="num-questions">
-              Question {qInd + 1} / {questions.length}
-            </p>
-            <div className="close-button-container">
-              <div>
-                <Link to="/Home"><CancelRoundedIcon/></Link>
-              </div>
-            </div>
-          <div>
-            <div className="QandAContainer">
-              <h1
-                className="Question"
-                dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
-              ></h1>
-              <div className="ButtonContainer">
-                {questions[qInd].incorrect_answers.map((a) => {
-                  return (
-                    <div className="ResponseButton">
-                      <button
-                        key={a}
-                        onClick={(e) => {
-                          setTimeout(() => {
-                            handleButton(e, a);
-                          }, 2000);
-                          if (a === questions[qInd].correct_answer) {
-                            setClassName('green-button');
-                            setScore(score + 100);
-                          } else {
-                            setClassName('red-button');
-                          }
-                        }}
-                        className={className}
-                      >
-                        {a}
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
+            <p>chargement</p>
+            </div>) :
+            loaded && qInd < questions.length ? (
+          <div className="QandAContainer">
+            <h1
+              className="Question"
+              dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
+            ></h1>
+            <div className="ButtonContainer">
+              {questions[qInd].incorrect_answers.map((a) => {
+                return (
+                  <div>
+                    <button
+                      variant="contained"
+                      key={a}
+                      onClick={(e) => {
+                        setTimeout(() => {
+                          handleButton(e, a);
+                        }, 2000);
+                        if (a === questions[qInd].correct_answer) {
+                          setIdName('green-button');
+                          setScore(score + 100);
+                        } else {
+                          setIdName('red-button');
+                        }
+                      }}
+                      className="ResponseButton"
+                      id={idName}
+                      
+                    >
+                      {a}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           </div>
-          </>
-        ) : (
-          <div className="end-button-container">
-            <NavLink exact to="/endgame">
-              <button className="end-button">End of the Game</button>
-            </NavLink>
-          </div>
-        )}
+            ) : (
+              <>
+                <NavLink exact to="/endgame">
+                  <button>end of the game</button>
+                </NavLink>
+                </>
+            )
+        }
       </div>
       <PlayerInfos username={username} score={score} />
     </div>
