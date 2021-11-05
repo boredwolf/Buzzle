@@ -23,11 +23,6 @@ const PlayerInfos = ({ username, score }) => {
           <li>
             <FavoriteBorderIcon />
           </li>
-          <li>
-            <button>
-              <Link to="/Home">Exit</Link>
-            </button>
-          </li>
         </ul>
       </div>
     </div>
