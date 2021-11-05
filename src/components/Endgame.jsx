@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import logo from '../assets/images/logo-violet.png';
 
-const Endgame = ({ username }) => {
+const EndGame = ({ username }) => {
   const [quote, setQuote] = useState();
   const [loaded, setLoaded] = useState(false);
 
@@ -14,8 +14,6 @@ const Endgame = ({ username }) => {
       .then((response) => response.json())
       .then((data) => setQuote(data.messages.personalized[indRandQuote]));
     setLoaded(true);
-    console.log(loaded);
-    console.log(quote);
   }, []);
 
   return (
@@ -26,6 +24,7 @@ const Endgame = ({ username }) => {
                 <img className="logo" src={logo} alt="logo Buzzle" />
                 </div>
                     <div className="endgame-quote-container">
+                    <h2 className="game-over-title">Game Over</h2>
                             <img className="avatarImg" src={'https://avatars.dicebear.com/api/personas/' + username + '.svg'} alt="avatar"/>
         <p className="endgame-quote">As Trump would say : {username} {quote}
         </p>
@@ -35,4 +34,4 @@ const Endgame = ({ username }) => {
     )
   );
 };
-export default Endgame;
+export default EndGame;

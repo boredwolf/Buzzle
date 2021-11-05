@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Questions from './components/Questions';
-import Endgame from './components/Endgame';
+import EndGame from './components/EndGame';
 import Scores from './components/Scores';
 import Welcome from './components/Welcome';
 
@@ -24,10 +24,10 @@ function App() {
           <Home username={username} onUserNameChange={onUserNameChange} />
         </Route>
         <Route path="/questions">
-          <Questions  username={username} />
+          <Questions username={username} />
         </Route>
         <Route path="/endgame">
-          <Endgame username={username}/>
+          <EndGame username={username}/>
         </Route>
         <Route path="/scores">
           <Scores />
