@@ -1,13 +1,20 @@
 import { React, useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/images/logo-violet.png';
 import PlayerInfos from './PlayerInfos';
-import { NavLink } from 'react-router-dom';
 
 function Questions({ username }) {
   const url = 'https://opentdb.com/api.php?amount=10';
   const [questions, setQuestions] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [qInd, setQInd] = useState(0);
+  const [className, setClassName] = useState();
+  const [score, setScore] = useState(0);
+
+  function insertCorr(arr, corr) {
+    const randInd = Math.floor(Math.random() * 4);
+    arr.splice(randInd, 0, corr);
+  }
 
   useEffect(() => {
     fetch(url)
@@ -21,11 +28,9 @@ function Questions({ username }) {
         setLoaded(true);
       });
   }, []);
-
-  function insertCorr(arr, corr) {
-    const randInd = Math.floor(Math.random() * 4);
-    arr.splice(randInd, 0, corr);
-  }
+  useEffect(() => {
+    setClassName();
+  }, [qInd]);
 
   const handleButton = (e, ans) => {
     e.preventDefault();
@@ -46,15 +51,16 @@ function Questions({ username }) {
         <div id="logo-questions">
           <img className="logo" src={logo} alt="logo Buzzle" />
         </div>
+
+        <div className="num-questions">
+          Question {qInd + 1} / {questions.length}
+        </div>
         {!loaded ? (
           <div>
             <p>Chargement</p>
           </div>
         ) : loaded && qInd < questions.length ? (
-          <>
-            <p class="num-questions">
-              Question {qInd + 1} / {questions.length}
-            </p>
+          <div>
             <div className="QandAContainer">
               <h1
                 className="Question"
@@ -63,12 +69,21 @@ function Questions({ username }) {
               <div className="ButtonContainer">
                 {questions[qInd].incorrect_answers.map((a) => {
                   return (
-                    <div>
+                    <div className="ResponseButton">
                       <button
-                        className="ResponseButton"
-                        variant="contained"
                         key={a}
-                        onClick={(e) => handleButton(e, a)}
+                        onClick={(e) => {
+                          setTimeout(() => {
+                            handleButton(e, a);
+                          }, 2000);
+                          if (a === questions[qInd].correct_answer) {
+                            setClassName('green-button');
+                            setScore(score + 100);
+                          } else {
+                            setClassName('red-button');
+                          }
+                        }}
+                        className={className}
                       >
                         {a}
                       </button>
@@ -77,7 +92,7 @@ function Questions({ username }) {
                 })}
               </div>
             </div>
-          </>
+          </div>
         ) : (
           <div className="end-button-container">
             <NavLink exact to="/endgame">
@@ -86,7 +101,7 @@ function Questions({ username }) {
           </div>
         )}
       </div>
-      <PlayerInfos username={username} />
+      <PlayerInfos username={username} score={score} />
     </div>
   );
 }
