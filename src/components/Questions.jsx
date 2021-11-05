@@ -2,6 +2,10 @@ import { React, useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/images/logo-violet.png';
 import PlayerInfos from './PlayerInfos';
+import { NavLink } from 'react-router-dom';
+import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
+import { Link } from 'react-router-dom';
+
 
 function Questions({ username }) {
   const url = 'https://opentdb.com/api.php?amount=10';
@@ -60,6 +64,15 @@ function Questions({ username }) {
             <p>Chargement</p>
           </div>
         ) : loaded && qInd < questions.length ? (
+          <>
+            <p class="num-questions">
+              Question {qInd + 1} / {questions.length}
+            </p>
+            <div className="close-button-container">
+              <div>
+                <Link to="/Home"><CancelRoundedIcon/></Link>
+              </div>
+            </div>
           <div>
             <div className="QandAContainer">
               <h1
@@ -93,6 +106,7 @@ function Questions({ username }) {
               </div>
             </div>
           </div>
+          </>
         ) : (
           <div className="end-button-container">
             <NavLink exact to="/endgame">
@@ -103,7 +117,6 @@ function Questions({ username }) {
       </div>
       <PlayerInfos username={username} score={score} />
     </div>
-  );
-}
+  );}
 
 export default Questions;
