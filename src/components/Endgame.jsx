@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import logo from '../assets/images/logo-violet.png';
+import PlayerInfos from "./PlayerInfos";
 
 const Endgame = ({ username }) => {
   const [quote, setQuote] = useState();
@@ -20,17 +21,16 @@ const Endgame = ({ username }) => {
 
   return (
     loaded && (
-        <div className="QuestionsContainer">
+      <div className="QuestionsContainer">
         <div className="Questions">
-                <div id="logo-questions">
-                <img className="logo" src={logo} alt="logo Buzzle" />
-                </div>
-                    <div className="endgame-quote-container">
-                            <img className="avatarImg" src={'https://avatars.dicebear.com/api/personas/' + username + '.svg'} alt="avatar"/>
-        <p className="endgame-quote">As Trump would say : {username} {quote}
-        </p>
-      </div>
-      </div>
+          <div id="logo-questions">
+            <img className="logo" src={logo} alt="logo Buzzle" />
+          </div>
+              <div className="endgame-quote-container">
+                  <img className="avatarImg" src={'https://avatars.dicebear.com/api/personas/' + username + '.svg'} alt="avatar"/>
+                      <p className="endgame-quote">As Trump would say : {username} {quote} </p>
+              </div>
+        </div>
       </div>
     )
   );

@@ -11,14 +11,9 @@
   padding: 0;
 }
 body {
-
   overflow: hidden;
   background: linear-gradient(45deg, #8e017a, #290180);
-  background-image: linear-gradient(
-    to bottom right,
-    #290180 0%,
-    #8e017a 100%
-  );
+  background-image: linear-gradient(to bottom right, #290180 0%, #8e017a 100%);
   height: 100vh;
   background-size: 200% 200%;
   animation: movingGradient 8s linear infinite alternate;
@@ -32,7 +27,7 @@ body {
   }
 }
 .logo {
-  width: 200px;
+  width: 8rem;
 }
 h2 {
   font-family: var(--font-second);
@@ -69,6 +64,7 @@ h3 {
 }
 
 .ul-list {
+  text-align: center;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -76,9 +72,11 @@ h3 {
 }
 
 .div-rules {
-  width: 500px;
-  height: 506px;
+  width: 45vw;
+  height: 60vh;
   display: flex;
+  text-align: center;
+  margin: 1%;
   justify-content: space-evenly;
   background-color: rgba(222, 210, 40, 0.15);
   flex-direction: column;
@@ -96,8 +94,10 @@ h3 {
   display: flex;
   justify-content: center;
   color: var(--color-second);
-  bottom: 35px;
-  position: relative;
+}
+
+.barre-button {
+  display: flex;
 }
 
 .MuiSvgIcon-root {
@@ -284,14 +284,14 @@ a {
   border: 5px solid white;
   border-radius: 15px;
   color: white;
-  margin: 20px;
-  padding: 20px;
+  margin: 3rem;
+  padding: 1.5rem;
   color: white;
   text-align: center;
   justify-content: center;
   background-color: #8e017a;
   font-family: var(--font-second);
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
 }
@@ -351,7 +351,7 @@ ul {
 }
 
 .avatarImg {
-  width: 100px;
+  width: 7rem;
 }
 .end-button-container {
   display: flex;
@@ -375,3 +375,123 @@ ul {
 }
 
 /* Endgame CSS end*/
+
+/* Responsive design */
+
+@media screen and (max-width: 600px) {
+
+  .welcome-logo {
+    width: 80%;
+  }
+
+  .logo {
+    width: 30vw;
+  }
+  .hello-user{
+    margin-top: 3vh;
+  }
+  h2 {
+    font-size: 1.2em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+
+  .div-rules{
+    width: 90vw;
+    height: 40vh;
+  }
+  .random-username {
+    font-size: 1em;
+    margin: 3px;
+    display: flex;
+  }
+  .username {
+    display: flex;
+    align-items: center;
+  }
+  .list-theme {
+    font-size: 1em;
+    margin: 3px;
+  }
+
+  .play-button {
+    height: 8vh;
+    padding: 1vw;
+    margin: 0;
+  }
+
+  .button-pickit {
+    width: 20vw;
+    height: 6vh;
+  }
+
+  .button-generate-username {
+    width: 90%;
+  }
+
+  .div-surname-rules {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  }
+
+  #display-rules{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #logo-questions {
+    margin: 0;
+  }
+
+  .QuestionsContainer {
+    width: 90vw;
+  }
+
+  .Question{
+    display: flex;
+    justify-content: center;
+    margin: 3px;
+  }
+
+  .QandAContainer {
+    margin: auto;
+    width: 90vw;
+  }
+
+  .ButtonContainer {
+    width: 90vw;
+    padding-top: 3px;
+  }
+
+  .ResponseButton {
+    padding: 10px;
+    margin: 10px;
+    width: 33vw;
+  }
+  .player-infos-container1{
+    display: flex;
+    width: 100%;
+  }
+
+  .player-infos-container2{
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+  }
+
+  .player-infos-container2, ul {
+    display: flex;
+    padding: 3px;
+  }
+
+  .Questions{
+    text-align: center;
+  }
+}
+/* End Responsive design */
