@@ -364,10 +364,15 @@ ul {
 .endgame-quote {
   font-size: 20px;
   color: white;
+  font-family: var(--font-secondary) ;
+  font-weight: bold;
+  padding-bottom: 20px;
 }
 
 .avatarImg {
-  width: 7rem;
+  width: 7%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .end-button-container {
   display: flex;
@@ -384,10 +389,26 @@ ul {
   text-align: center;
   justify-content: center;
   background-color: #8e017a;
-  font-family: var(--font-second);
+  font-family: var(--font-secondary);
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
+  width: 200px;
+  text-align: center;
+}
+
+
+.infos-endgame {
+color: white;
+font-family: var(--font-secondary);
+font-size: 40px;
+font-weight: bold;
+padding-bottom: 20px;
+padding-top: 20px;
+}
+
+.badgeImg {
+  width: 15%;
 }
 
 /* Endgame CSS end*/

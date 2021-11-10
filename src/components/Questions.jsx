@@ -65,6 +65,8 @@ function Questions({ username }) {
         setLoaded(true);
       });
   }, []);
+
+
   useEffect(() => {
     setIdName();
   }, [qInd]);

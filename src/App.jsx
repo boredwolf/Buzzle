@@ -9,6 +9,8 @@ import Welcome from './components/Welcome';
 
 function App() {
   const [username, setUsername] = useState( 'Choose your username below ')
+  const [score, setScore] = useState(0);
+
 
   function onUserNameChange(username) {
     setUsername(username);
@@ -27,7 +29,7 @@ function App() {
           <Questions username={username} />
         </Route>
         <Route path="/endgame">
-          <EndGame username={username}/>
+          <EndGame username={username} score={score}/>
         </Route>
         <Route path="/scores">
           <Scores />
