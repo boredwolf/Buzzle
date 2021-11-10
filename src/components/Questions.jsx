@@ -78,21 +78,20 @@ function Questions({ username }) {
           <img className="logo" src={logo} alt="logo Buzzle" />
         </div>
 
-        <div className="num-questions">
-          Question {qInd + 1} / {questions.length}
-          <div className="close-button-container">
-            <div>
-              <Link to="/Home">
-                <CancelRoundedIcon />
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {!loaded && <p>chargement</p>}
+        {!loaded && <div class="loader"></div>}
 
         {loaded && qInd < questions.length && (
           <div className="QandAContainer">
+            <div className="close-button-container">
+            <div>
+            <Link to="/Home">
+              <CancelRoundedIcon />
+            </Link>
+            </div>
+            </div>
+            <div className="num-questions">
+          Question {qInd + 1} / {questions.length}
+          </div>
             <h1
               className="Question"
               dangerouslySetInnerHTML={{ __html: questions[qInd].question }}

@@ -12,13 +12,22 @@
 }
 body {
   overflow: hidden;
-}
-#root {
   background: linear-gradient(45deg, #8e017a, #290180);
+  background-image: linear-gradient(to bottom right, #290180 0%, #8e017a 100%);
   height: 100vh;
+  background-size: 200% 200%;
+  animation: movingGradient 8s linear infinite alternate;
+}
+@keyframes movingGradient {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
 }
 .logo {
-  width: 200px;
+  width: 8rem;
 }
 h2 {
   font-family: var(--font-second);
@@ -55,6 +64,7 @@ h3 {
 }
 
 .ul-list {
+  text-align: center;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -62,9 +72,11 @@ h3 {
 }
 
 .div-rules {
-  width: 500px;
-  height: 506px;
+  width: 45vw;
+  height: 60vh;
   display: flex;
+  text-align: center;
+  margin: 1%;
   justify-content: space-evenly;
   background-color: rgba(222, 210, 40, 0.15);
   flex-direction: column;
@@ -82,8 +94,10 @@ h3 {
   display: flex;
   justify-content: center;
   color: var(--color-second);
-  bottom: 35px;
-  position: relative;
+}
+
+.barre-button {
+  display: flex;
 }
 
 .MuiSvgIcon-root {
@@ -96,6 +110,13 @@ h3 {
 
 /***** CSS for Questions component ********/
 
+.close-button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+  width: 97%;
+}
+
 .Questions {
   height: 70vh;
   display: flex;
@@ -107,6 +128,25 @@ h3 {
   border-radius: 30px;
   border: 5px solid var(--color-second);
   width: 100%;
+  margin-bottom: 20px;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .close-button-container {
@@ -147,17 +187,21 @@ h3 {
   margin: 20px;
 }
 
-.QuestionsContainer,
-.QandAContainer {
+.QuestionsContainer {
   display: flex;
   width: 70vw;
   height: 100vh;
   margin: auto;
-  padding: 10px;
   flex-direction: column;
   justify-content: center;
   flex-wrap: nowrap;
   align-items: center;
+}
+.QandAContainer {
+  width: 70vw;
+  height: 100vh;
+  margin: auto;
+  flex-direction: column;
 }
 
 .ResponseButton {
@@ -191,12 +235,9 @@ h3 {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
   text-align: center;
-  justify-content: flex-end;
+  justify-content: space-evenly;
 }
-
-
 
 #green-button {
   background-color: green;
@@ -206,9 +247,6 @@ h3 {
   background-color: red;
 }
 
-#blue-button {
-  background-color: blue;
-}
 /***** END of CSS for Questions component ********/
 
 /*Username*/
@@ -222,7 +260,7 @@ h3 {
 .welcome-container1 {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
 }
 
 .welcome-container2 {
@@ -256,14 +294,14 @@ a {
   border: 5px solid white;
   border-radius: 15px;
   color: white;
-  margin: 20px;
-  padding: 20px;
+  margin: 3rem;
+  padding: 1.5rem;
   color: white;
   text-align: center;
   justify-content: center;
   background-color: #8e017a;
   font-family: var(--font-second);
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
 }
@@ -287,10 +325,8 @@ a {
 
 .player-infos-container1 {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
 }
+
 .player-infos-container2 {
   width: 100%;
   border: 5px solid white;
@@ -301,12 +337,12 @@ a {
 .player-infos-container2,
 ul {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   list-style-type: none;
   font-family: var(--font-primary);
+  justify-content: space-evenly;
 }
 
 /* Endgame CSS start*/
@@ -326,7 +362,7 @@ ul {
 }
 
 .avatarImg {
-  width: 100px;
+  width: 7rem;
 }
 .end-button-container {
   display: flex;
@@ -350,3 +386,121 @@ ul {
 }
 
 /* Endgame CSS end*/
+
+/* Responsive design */
+
+@media screen and (max-width: 600px) {
+
+  .welcome-logo {
+    width: 80%;
+  }
+
+  .logo {
+    width: 30vw;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+
+  .div-rules{
+    width: 90vw;
+    height: 40vh;
+  }
+  .random-username {
+    font-size: 1em;
+    margin: 3px;
+    display: flex;
+  }
+  .username {
+    display: flex;
+    align-items: center;
+  }
+  .list-theme {
+    font-size: 1em;
+    margin: 3px;
+  }
+
+  .play-button {
+    height: 8vh;
+    padding: 1vw;
+    margin: 0;
+  }
+
+  .button-pickit {
+    width: 20vw;
+    height: 6vh;
+  }
+
+  .button-generate-username {
+    width: 90%;
+  }
+
+  .div-surname-rules {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  }
+
+  #display-rules{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #logo-questions {
+    margin: 0;
+  }
+
+  .QuestionsContainer {
+    width: 90vw;
+  }
+
+  .Question{
+    display: flex;
+    justify-content: center;
+    margin: 3px;
+  }
+
+  .QandAContainer {
+    margin: auto;
+    width: 90vw;
+  }
+
+  .ButtonContainer {
+    width: 90vw;
+    padding-top: 3px;
+  }
+
+  .ResponseButton {
+    padding: 10px;
+    margin: 10px;
+    width: 33vw;
+  }
+  .player-infos-container1{
+    display: flex;
+    width: 100%;
+  }
+
+  .player-infos-container2{
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+  }
+
+  .player-infos-container2, ul {
+    display: flex;
+    padding: 3px;
+  }
+
+  .Questions{
+    text-align: center;
+  }
+}
+/* End Responsive design */

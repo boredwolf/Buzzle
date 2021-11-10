@@ -1,6 +1,6 @@
 const Rules1 = () => {
   return (
-    <div className="div-rules">
+    <div>
       <h2 className="rules-title">How to Play ?</h2>
       <h3 className="choose-title">Choose a theme</h3>
       <ul className="ul-list">

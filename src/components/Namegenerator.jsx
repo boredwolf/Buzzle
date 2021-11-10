@@ -37,7 +37,7 @@ const Namegenerator = ({ onNameSelected }) => {
           </Button>
         )}
       </div>
-      <Button variant="contained" color="secondary" onClick={getRandomName}>
+      <Button className="button-generate-username" variant="contained" color="secondary" onClick={getRandomName}>
         Click to generate a random name
       </Button>
     </>

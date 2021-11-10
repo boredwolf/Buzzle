@@ -17,9 +17,8 @@ const DisplayRules = ({ onNameSelected }) => {
     <div id="display-rules">
       <div className="div-surname-rules">
         <Username onNameSelected={onNameSelected} />
-        <div className="barre-button">
+        <div className="div-rules">
           <Router>
-            <div>
               <Switch>
                 <Route exact path="/home" component={Rules1} />
                 <Route path="/rules2" component={Rules2} />
@@ -36,7 +35,6 @@ const DisplayRules = ({ onNameSelected }) => {
                   <RadioButtonCheckedIcon />
                 </NavLink>
               </nav>
-            </div>
           </Router>
         </div>
       </div>
