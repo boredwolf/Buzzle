@@ -149,11 +149,21 @@ h3 {
   }
 }
 
+.close-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+}
+
+.questions-close-button {
+  justify-content: flex-end;
+}
+
 .Question {
   display: flex;
   justify-content: center;
   margin: 20px;
-  width: 60%;
+  width: 80%;
   font-family: var(--font-secondary);
   color: white;
 }
@@ -336,6 +346,7 @@ ul {
 }
 
 /* Endgame CSS start*/
+
 .endgame-quote-container {
   display: flex;
   flex-direction: column;
