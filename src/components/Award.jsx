@@ -5,11 +5,11 @@ const Award = ({score}) => {
   return (
     <>
       <h2 className="game-over-title">
-        {score === 1000 ? 'You Win !' : 'Game Over'}
+        {score === 5000 ? 'You Win !' : 'Game Over'}
       </h2>
       <img
         className="badgeImg"
-        src={score === 1000 ? badge1 : dropdown}
+        src={score === 5000 ? badge1 : dropdown}
         alt="badge"
       />
     </>

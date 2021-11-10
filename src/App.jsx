@@ -31,7 +31,7 @@ function App() {
           <Home username={username} onUserNameChange={onUserNameChange} />
         </Route>
         <Route path="/questions">
-          <Questions username={username} />
+          <Questions username={username} onScoreChange={setScore} />
         </Route>
         <Route path="/endgame">
           <EndGame username={username} score={score}/>

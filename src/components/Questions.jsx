@@ -7,7 +7,8 @@ import logo from "../assets/images/logo-violet.png";
 import Timer from "./Timer";
 import UrlContext from "../Contexts/UrlContext";
 
-function Questions({ username }) {
+
+function Questions({ username, onScoreChange }) {
   const {url, setUrl} = useContext(UrlContext)
   const [questions, setQuestions] = useState([]);
   const [loaded, setLoaded] = useState(false);
@@ -77,6 +78,10 @@ function Questions({ username }) {
   useEffect(() => {
     setIdName();
   }, [qInd]);
+
+  useEffect(() => {
+    onScoreChange(score);
+  }, [score]);
 
   return (
     <div className="QuestionsContainer">

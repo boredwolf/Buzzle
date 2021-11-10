@@ -29,7 +29,7 @@ const EndGame = ({ username, score }) => {
                     <div className="endgame-quote-container">
                     
                     <div className="infos-endgame">Score : {score} points</div>
-                            <img className="avatarImg" src={'https://avatars.dicebear.com/api/personas/' + username + '.svg'} alt="avatar"/>
+                            
         <p className="endgame-quote">As Trump would say : {username} {quote}
         </p>
         <div className="endgame-buttons">
