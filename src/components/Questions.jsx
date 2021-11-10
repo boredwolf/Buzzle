@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router";
 import { NavLink, Link } from "react-router-dom";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import PlayerInfos from "./PlayerInfos";
 import logo from "../assets/images/logo-violet.png";
+import UrlContext from "../Contexts/UrlContext";
+
 
 function Questions({ username }) {
-  const url = "https://opentdb.com/api.php?amount=10";
+  const {url, setUrl} = useContext(UrlContext)
   const [questions, setQuestions] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [qInd, setQInd] = useState(0);

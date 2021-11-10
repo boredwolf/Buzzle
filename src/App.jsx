@@ -6,9 +6,12 @@ import Questions from './components/Questions';
 import EndGame from './components/EndGame';
 import Scores from './components/Scores';
 import Welcome from './components/Welcome';
+import UrlContext from './Contexts/UrlContext';
 
 function App() {
   const [username, setUsername] = useState( 'Choose your username below ')
+ const [url, setUrl] = useState()
+ const [difficulty, setDifficulty] = useState("")
   const [score, setScore] = useState(0);
 
 
@@ -18,6 +21,8 @@ function App() {
 
   return (
     <BrowserRouter>
+    <UrlContext.Provider
+    value={{url, setUrl, difficulty, setDifficulty}}>
       <Switch>
         <Route exact path="/">
           <Welcome />
@@ -35,6 +40,7 @@ function App() {
           <Scores />
         </Route>
       </Switch>
+    </UrlContext.Provider>
     </BrowserRouter>
   );
 }
