@@ -1,9 +1,8 @@
-import React from 'react';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Link } from 'react-router-dom';
+import React from "react";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-const PlayerInfos = ({ username, score}) => {
+const PlayerInfos = ({ username, score, life }) => {
   return (
     <div className="player-infos-container1">
       <div className="player-infos-container2">
@@ -14,15 +13,9 @@ const PlayerInfos = ({ username, score}) => {
           <li>Score: {score}points</li>
         </ul>
         <ul>
-          <li>
-            <FavoriteIcon />
-          </li>
-          <li>
-            <FavoriteIcon />
-          </li>
-          <li>
-            <FavoriteBorderIcon />
-          </li>
+          <li>{life >= 1 ? <FavoriteIcon /> : <FavoriteBorderIcon />}</li>
+          <li>{life >= 2 ? <FavoriteIcon /> : <FavoriteBorderIcon />}</li>
+          <li>{life === 3 ? <FavoriteIcon /> : <FavoriteBorderIcon />}</li>
         </ul>
       </div>
     </div>

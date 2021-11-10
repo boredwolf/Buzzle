@@ -44,8 +44,6 @@ function Questions({ username }) {
       }
     }, 2000);
 
-    console.log(answer, questions[qInd].correct_answer);
-
     if (answer === questions[qInd].correct_answer) {
       setIdName("green-button");
       setScore(score + 100);
@@ -77,21 +75,19 @@ function Questions({ username }) {
         <div id="logo-questions">
           <img className="logo" src={logo} alt="logo Buzzle" />
         </div>
-
-        {!loaded && <div class="loader"></div>}
-
+        {!loaded && <div className="loader" />}
         {loaded && qInd < questions.length && (
           <div className="QandAContainer">
             <div className="close-button-container">
-            <div>
-            <Link to="/Home">
-              <CancelRoundedIcon />
-            </Link>
-            </div>
+              <div>
+                <Link to="/Home">
+                  <CancelRoundedIcon />
+                </Link>
+              </div>
             </div>
             <div className="num-questions">
-          Question {qInd + 1} / {questions.length}
-          </div>
+              Question {qInd + 1} / {questions.length}
+            </div>
             <h1
               className="Question"
               dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
@@ -125,7 +121,7 @@ function Questions({ username }) {
         )}
       </div>
 
-      <PlayerInfos username={username} score={score} />
+      <PlayerInfos username={username} score={score} life={life} />
     </div>
   );
 }
