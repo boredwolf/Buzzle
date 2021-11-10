@@ -1,15 +1,18 @@
-import { React, useState, useEffect } from 'react';
+import { React, useEffect } from "react";
 
-const Timer = () => {
-  const [counter, setCounter] = useState(30);
+const Timer = ({ counter = 20, setCounter, onTimeout }) => {
   useEffect(() => {
-    counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
+    if (counter === 0) {
+      onTimeout();
+      return;
+    }
+    const timeOut = setTimeout(() => setCounter(counter - 1), 1000);
+
+    return () => {
+      clearTimeout(timeOut);
+    };
   }, [counter]);
 
-  return (
-    <div className="App">
-      <div className="timer">{counter}</div>
-    </div>
-  );
+  return <div className="timer">{counter}</div>;
 };
 export default Timer;

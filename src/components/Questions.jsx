@@ -4,8 +4,8 @@ import { NavLink, Link } from "react-router-dom";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import PlayerInfos from "./PlayerInfos";
 import logo from "../assets/images/logo-violet.png";
+import Timer from "./Timer";
 import UrlContext from "../Contexts/UrlContext";
-
 
 function Questions({ username }) {
   const {url, setUrl} = useContext(UrlContext)
@@ -14,6 +14,7 @@ function Questions({ username }) {
   const [qInd, setQInd] = useState(0);
   const [idName, setIdName] = useState();
   const [score, setScore] = useState(0);
+  const [counter, setCounter] = useState(20);
   const [life, setLife] = useState(3);
   const history = useHistory();
 
@@ -44,6 +45,7 @@ function Questions({ username }) {
       } else {
         setQInd(1000);
       }
+      setCounter(20);
     }, 2000);
 
     if (answer === questions[qInd].correct_answer) {
@@ -53,6 +55,10 @@ function Questions({ username }) {
       setIdName("red-button");
       handleLife();
     }
+  }
+
+  function onTimeout() {
+    onResponseClick("");
   }
 
   useEffect(() => {
@@ -67,7 +73,6 @@ function Questions({ username }) {
         setLoaded(true);
       });
   }, []);
-
 
   useEffect(() => {
     setIdName();
@@ -91,6 +96,13 @@ function Questions({ username }) {
             </div>
             <div className="num-questions">
               Question {qInd + 1} / {questions.length}
+            </div>
+            <div>
+              <Timer
+                counter={counter}
+                setCounter={setCounter}
+                onTimeout={onTimeout}
+              />
             </div>
             <h1
               className="Question"

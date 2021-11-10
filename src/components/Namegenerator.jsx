@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { animalArray, adjectifArray } from './Names';
-import { Button } from '@mui/material';
-import Avatar from './Avatar';
+import { useState } from "react";
+import { Button } from "@mui/material";
+import { animalArray, adjectifArray } from "./Names";
+import Avatar from "./Avatar";
 
 const Namegenerator = ({ onNameSelected }) => {
-  const [name, setName] = useState('?');
+  const [name, setName] = useState("?");
   const [randomName, setRandomName] = useState();
 
   function randomNumber(array) {
@@ -23,9 +23,9 @@ const Namegenerator = ({ onNameSelected }) => {
   }
   return (
     <>
-      <Avatar randomName={randomName } />
+      <Avatar randomName={randomName} />
       <div className="username">
-        <p className="random-username">{randomName}</p>{' '}
+        <p className="random-username">{randomName}</p>{" "}
         {randomName && (
           <Button
             className="button-pickit"
@@ -37,7 +37,12 @@ const Namegenerator = ({ onNameSelected }) => {
           </Button>
         )}
       </div>
-      <Button className="button-generate-username" variant="contained" color="secondary" onClick={getRandomName}>
+      <Button
+        className="button-generate-username"
+        variant="contained"
+        color="secondary"
+        onClick={getRandomName}
+      >
         Click to generate a random name
       </Button>
     </>
