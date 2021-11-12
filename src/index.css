@@ -407,12 +407,25 @@ padding-bottom: 20px;
 padding-top: 20px;
 }
 
-.badgeImg {
-  width: 15%;
-}
 
 /* Endgame CSS end*/
 
+/*Award */
+.game-over-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-over-title {
+  padding-top: 3vw;
+}
+
+.badgeImg {
+  width: 20%;
+ 
+}
 
 /* Responsive design */
 
