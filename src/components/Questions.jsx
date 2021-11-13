@@ -7,15 +7,14 @@ import logo from "../assets/images/logo-violet.png";
 import Timer from "./Timer";
 import UrlContext from "../Contexts/UrlContext";
 
-
 function Questions({ username, onScoreChange }) {
-  const {url, setUrl} = useContext(UrlContext)
+  const { url, setUrl } = useContext(UrlContext);
   const [questions, setQuestions] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [qInd, setQInd] = useState(0);
   const [idName, setIdName] = useState();
   const [score, setScore] = useState(0);
-  const [counter, setCounter] = useState(20);
+  const [counter, setCounter] = useState(200);
   const [life, setLife] = useState(3);
   const history = useHistory();
 
@@ -46,7 +45,7 @@ function Questions({ username, onScoreChange }) {
       } else {
         setQInd(1000);
       }
-      setCounter(20);
+      setCounter(200);
     }, 2000);
 
     if (answer === questions[qInd].correct_answer) {
@@ -84,49 +83,46 @@ function Questions({ username, onScoreChange }) {
   }, [score]);
 
   return (
-    <div className="QuestionsContainer">
-      <div className="Questions">
-        <div id="logo-questions">
-          <img className="logo" src={logo} alt="logo Buzzle" />
-        </div>
+    <div className="questions-container">
+      <img className="logo logo-questions" src={logo} alt="logo Buzzle" />
+      <div className="questions">
         {!loaded && <div className="loader" />}
         {loaded && qInd < questions.length && (
-          <div className="QandAContainer">
+          <div className="q-and-a-container">
             <div className="close-button-container">
-              <div>
-                <Link to="/Home">
-                  <CancelRoundedIcon />
-                </Link>
-              </div>
-            </div>
-            <div className="num-questions">
-              Question {qInd + 1} / {questions.length}
-            </div>
-            <div>
               <Timer
                 counter={counter}
                 setCounter={setCounter}
                 onTimeout={onTimeout}
               />
+              <Link to="/Home">
+                <CancelRoundedIcon sx={{ fontSize: 40 }} />
+              </Link>
             </div>
-            <h1
-              className="Question"
-              dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
-            />
+            <div className="num-questions">
+              Question {qInd + 1} / {questions.length}
+            </div>
 
-            <div className="ButtonContainer">
-              {questions[qInd].incorrect_answers.map((answer) => (
-                <button
-                  type="button"
-                  variant="contained"
-                  key={answer}
-                  onClick={() => onResponseClick(answer)}
-                  className="ResponseButton"
-                  id={idName}
-                >
-                  {answer}
-                </button>
-              ))}
+            <div className="container-questions-answers">
+              <h1
+                className="question"
+                dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
+              />
+
+              <div className="button-container">
+                {questions[qInd].incorrect_answers.map((answer) => (
+                  <button
+                    type="button"
+                    variant="contained"
+                    key={answer}
+                    onClick={() => onResponseClick(answer)}
+                    className="response-button"
+                    id={idName}
+                  >
+                    {answer}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}

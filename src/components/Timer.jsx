@@ -1,6 +1,6 @@
 import { React, useEffect } from "react";
 
-const Timer = ({ counter = 20, setCounter, onTimeout }) => {
+const Timer = ({ counter = 200, setCounter, onTimeout }) => {
   useEffect(() => {
     if (counter === 0) {
       onTimeout();

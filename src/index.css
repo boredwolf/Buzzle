@@ -26,23 +26,37 @@ body {
     background-position: 100% 100%;
   }
 }
+
 .logo {
-  width: 8rem;
+  width: 11rem;
 }
+.logo-questions{
+  position: absolute;
+  top:10px;
+}
+
 h2 {
   font-family: var(--font-second);
   font-size: 2.2em;
   color: var(--color-second);
   text-align: center;
-  padding-top: 5px;
+  padding-top: 10px;
   padding-bottom: 5px;
+  text-shadow: 1px 1px 2px black;
+
 }
 h3 {
   font-family: var(--font-second);
-  font-size: 1.7em;
+  font-size: 1.6em;
+  text-shadow: 1px 1px 2px black;
+
 }
 
 /* CSS Rules*/
+
+.hello-user{
+  margin-bottom: 10px;
+}
 .div-surname-rules {
   display: flex;
   justify-content: center;
@@ -53,7 +67,7 @@ h3 {
   font-size: 1.5em;
   padding: 4px;
   list-style: none;
-  margin: 5px 40px 5px 40px;
+  margin: 5px 20px 5px 20px;
 }
 
 .random-username {
@@ -68,7 +82,7 @@ h3 {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .div-rules {
@@ -77,7 +91,7 @@ h3 {
   display: flex;
   text-align: center;
   margin: 1%;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: rgba(222, 210, 40, 0.15);
   flex-direction: column;
   color: var(--color-second);
@@ -94,7 +108,9 @@ h3 {
 .container-button {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   color: var(--color-second);
+  padding-bottom: 10px;
 }
 
 .barre-button {
@@ -114,12 +130,17 @@ h3 {
 .close-button-container {
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 20px;
   width: 97%;
 }
+.container-questions-answers {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
 
-.Questions {
-  height: 70vh;
+.questions {
+    height: 70vh;
   display: flex;
   flex-direction: column;
   align-content: space-around;
@@ -150,12 +171,6 @@ h3 {
   }
 }
 
-.close-button-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 80%;
-}
-
 .questions-close-button {
   justify-content: flex-end;
 }
@@ -164,13 +179,13 @@ h3 {
   justify-content: flex-end;
 }
 
-.Question {
+.question {
   display: flex;
   justify-content: center;
   margin: 20px;
   width: 80%;
   font-family: var(--font-secondary);
-  color: white;
+  color: var(--color-second);
 }
 
 #logo-questions {
@@ -184,15 +199,16 @@ h3 {
 
 .num-questions {
   font-family: var(--font-primary);
-  color: white;
+  color: var(--color-second);
+  padding-top: 20px;
 }
 
-.PlayQuestions {
+.play-questions{
   width: 15%;
   margin: 20px;
 }
 
-.QuestionsContainer {
+.questions-container {
   display: flex;
   width: 70vw;
   height: 100vh;
@@ -202,14 +218,21 @@ h3 {
   flex-wrap: nowrap;
   align-items: center;
 }
-.QandAContainer {
+.q-and-a-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: center;
   width: 70vw;
   height: 100vh;
+  padding-top : 30px;
   margin: auto;
-  flex-direction: column;
+
 }
 
-.ResponseButton {
+.response-button {
   padding: 20px;
   width: 20vw;
   margin: 20px 20px 20px 20px;
@@ -226,23 +249,16 @@ h3 {
   width: 100px;
 }
 
-.ButtonContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  padding-top: 20px;
-  font-weight: bold;
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    width: 80%;
+    padding-top: 20px;
+    font-weight: bold;
 }
 
-.QandAContainer {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  text-align: center;
-  justify-content: space-evenly;
-}
 
 #green-button {
   background-color: green;
@@ -298,10 +314,9 @@ a {
 .play-button {
   border: 5px solid white;
   border-radius: 15px;
-  color: white;
-  margin: 3rem;
+  color: var(--color-second);
   padding: 1.5rem;
-  color: white;
+  margin-bottom: 10px;
   text-align: center;
   justify-content: center;
   background-color: #8e017a;
@@ -322,8 +337,6 @@ a {
   border-radius: 20px;
   background-color: rgba(222, 210, 40, 0);
   border: 3px solid var(--color-second);
-  position: relative;
-  left: 500px;
 }
 
 /* CSS barre player */
@@ -336,7 +349,7 @@ a {
   width: 100%;
   border: 5px solid white;
   border-radius: 15px;
-  color: white;
+  color: var(--color-second);
 }
 
 .player-infos-container2,
@@ -356,24 +369,24 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vw;
   justify-content: center;
-  margin-top: -45px;
+  margin: 0 40px 0 40px;
 }
 
 .endgame-quote {
   font-size: 20px;
-  color: white;
+  color: var(--color-second);
   font-family: var(--font-secondary) ;
   font-weight: bold;
   padding-bottom: 20px;
 }
 
-.avatarImg {
-  width: 7%;
+.avatar-img {
+  width: 16%;
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
 .end-button-container {
   display: flex;
   height: 100vh;
@@ -382,10 +395,9 @@ ul {
 .end-button {
   border: 5px solid white;
   border-radius: 15px;
-  color: white;
+  color: var(--color-second);
   margin: 20px;
   padding: 20px;
-  color: white;
   text-align: center;
   justify-content: center;
   background-color: #8e017a;
@@ -399,10 +411,11 @@ ul {
 
 
 .infos-endgame {
-color: white;
-font-family: var(--font-secondary);
-font-size: 40px;
+color: var(--color-second);
+font-family: var(--font-second);
+font-size: 30px;
 font-weight: bold;
+margin-top: 10px;
 padding-bottom: 20px;
 padding-top: 20px;
 }
@@ -418,13 +431,8 @@ padding-top: 20px;
   align-items: center;
 }
 
-.game-over-title {
-  padding-top: 3vw;
-}
-
-.badgeImg {
-  width: 20%;
- 
+.badge-img {
+  width: 24%;
 }
 
 /* Responsive design */
@@ -459,6 +467,7 @@ padding-top: 20px;
   .username {
     display: flex;
     align-items: center;
+    padding-bottom: 20 px;
   }
   .list-theme {
     font-size: 1em;
@@ -498,27 +507,27 @@ padding-top: 20px;
     margin: 0;
   }
 
-  .QuestionsContainer {
+  .questions-container {
     width: 90vw;
   }
 
-  .Question{
+  .question{
     display: flex;
     justify-content: center;
     margin: 3px;
   }
 
-  .QandAContainer {
+  .q-and-a-container {
     margin: auto;
     width: 90vw;
   }
 
-  .ButtonContainer {
+  .button-container {
     width: 90vw;
     padding-top: 3px;
   }
 
-  .ResponseButton {
+  .response-button {
     padding: 10px;
     margin: 10px;
     width: 33vw;
@@ -539,8 +548,9 @@ padding-top: 20px;
     padding: 3px;
   }
 
-  .Questions{
+  .questions{
     text-align: center;
   }
 }
 /* End Responsive design */
+
