@@ -2,6 +2,9 @@
   "name": "wcs-buzzle",
   "version": "1.0.0",
   "private": false,
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "start": "concurrently \"npm:start:api\" \"npm:start:web\"",
     "start:api": "nodemon ./src/api/server.js",
