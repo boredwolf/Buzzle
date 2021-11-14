@@ -18,6 +18,8 @@ body {
   background-size: 200% 200%;
   animation: movingGradient 8s linear infinite alternate;
 }
+
+
 @keyframes movingGradient {
   from {
     background-position: 0 0;
@@ -56,17 +58,41 @@ h3 {
 
 .hello-user{
   margin-bottom: 10px;
+  text-transform:capitalize;
 }
 .div-surname-rules {
   display: flex;
   justify-content: center;
 }
-
+.rules-theme {
+  font-family: var(--font-primary);
+  font-size: 1.5em;
+  padding: 6px;
+  list-style: none;
+  margin: 5px 40px 5px 40px;
+}
 .list-theme {
   font-family: var(--font-primary);
   font-size: 1.5em;
-  padding: 4px;
+  padding: 6px;
   list-style: none;
+  margin: 5px 40px 5px 40px;
+  cursor: pointer;
+  background-color: #a8a8a83a;
+  filter: drop-shadow(2px 4px 8px #0f0f0f); 
+  border-radius: 10px;
+}
+
+.list-themeactive{
+  font-family: var(--font-primary);
+  font-size: 1.5em;
+  padding: 6px;
+  list-style: none;
+  margin: 5px 40px 5px 40px;
+  cursor: pointer;
+  background-color: #acacac96;
+  filter: drop-shadow(2px 4px 8px #0f0f0f); 
+  border-radius: 10px;
   margin: 5px 20px 5px 20px;
 }
 
@@ -75,6 +101,7 @@ h3 {
   font-size: 1.5em;
   padding: 4px;
   margin: 5px 40px 5px 40px;
+  text-transform:capitalize;
 }
 
 .ul-list {
@@ -307,6 +334,10 @@ ul {
   padding: 20px;
 }
 
+li:first-letter {
+  text-transform:capitalize;
+}
+
 a {
   color: var(--color-second);
   text-decoration: none;
@@ -453,6 +484,7 @@ padding-top: 20px;
 
   h3 {
     font-size: 1em;
+    
   }
 
   .div-rules{
@@ -464,6 +496,7 @@ padding-top: 20px;
     margin: 3px;
     display: flex;
   }
+
   .username {
     display: flex;
     align-items: center;
