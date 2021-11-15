@@ -10,7 +10,7 @@ const Rules2 = () => {
   
   function handleDifficulty(difficulty){
   setDifficulty(difficulty);
-  setUrl(`https://opentdb.com/api.php?amount=50&category=${category}&difficulty=${difficulty}`);
+  setUrl(`https://opentdb.com/api.php?amount=50&category=${category}&difficulty=${difficulty}&encode=base64`);
   setActive(event.target.id);
   }
   

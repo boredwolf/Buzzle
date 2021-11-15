@@ -19,6 +19,7 @@ function Questions({ username, onScoreChange }) {
   const history = useHistory();
   const { difficulty, setDifficulty} = useContext(UrlContext);
   const { category, setCategory } = useContext(UrlContext);
+  const [answered, setAnswered] = useState(false);
 
   function insertCorr(arr, corr) {
     const randInd = Math.floor(Math.random() * 4);
@@ -43,6 +44,7 @@ function Questions({ username, onScoreChange }) {
           questions[qInd + 1].incorrect_answers,
           questions[qInd + 1].correct_answer
         );
+        setAnswered(false)
         setQInd(qInd + 1);
       } else {
         setQInd(1000);
@@ -50,14 +52,19 @@ function Questions({ username, onScoreChange }) {
       setCounter(200);
     }, 2000);
 
-    if (answer === questions[qInd].correct_answer) {
+  if (answer === questions[qInd].correct_answer) {
       setIdName("green-button");
+      {
       setScore(score + 100);
-    } else {
-      setIdName("red-button");
-      handleLife();
+      setAnswered(true);
+      }
     }
-  }
+    else {
+        
+        setIdName("red-button");
+        handleLife();
+        setAnswered(true);
+        }}
 
   function onTimeout() {
     onResponseClick("");
@@ -109,7 +116,7 @@ function Questions({ username, onScoreChange }) {
             <div className="container-questions-answers">
               <h1
                 className="question"
-                dangerouslySetInnerHTML={{ __html: questions[qInd].question }}
+                dangerouslySetInnerHTML={{ __html: atob(questions[qInd].question) }}
               />
 
               <div className="button-container">
@@ -118,11 +125,11 @@ function Questions({ username, onScoreChange }) {
                     type="button"
                     variant="contained"
                     key={answer}
-                    onClick={() => onResponseClick(answer)}
+                    onClick={() => {!answered ? onResponseClick(answer) : null}}
                     className="response-button"
                     id={idName}
                   >
-                    {answer}
+                    {atob(answer)}
                   </button>
                 ))}
               </div>
