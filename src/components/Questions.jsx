@@ -17,6 +17,8 @@ function Questions({ username, onScoreChange }) {
   const [counter, setCounter] = useState(200);
   const [life, setLife] = useState(3);
   const history = useHistory();
+  const { difficulty, setDifficulty} = useContext(UrlContext);
+  const { category, setCategory } = useContext(UrlContext);
 
   function insertCorr(arr, corr) {
     const randInd = Math.floor(Math.random() * 4);
@@ -62,6 +64,7 @@ function Questions({ username, onScoreChange }) {
   }
 
   useEffect(() => {
+    console.log(url)
     fetch(url)
       .then((response) => response.json())
       .then((data) => {

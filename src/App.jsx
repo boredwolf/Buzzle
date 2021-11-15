@@ -10,8 +10,9 @@ import UrlContext from './Contexts/UrlContext';
 
 function App() {
   const [username, setUsername] = useState( 'Choose your username below ')
- const [url, setUrl] = useState()
- const [difficulty, setDifficulty] = useState("")
+  const [url, setUrl] = useState()
+  const [difficulty, setDifficulty] = useState("")
+  const [category, setCategory] = useState("")
   const [score, setScore] = useState(0);
 
 
@@ -22,7 +23,7 @@ function App() {
   return (
     <BrowserRouter>
     <UrlContext.Provider
-    value={{url, setUrl, difficulty, setDifficulty}}>
+    value={{url, setUrl, difficulty, setDifficulty, category, setCategory}}>
       <Switch>
         <Route exact path="/">
           <Welcome />

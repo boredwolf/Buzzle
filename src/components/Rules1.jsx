@@ -3,14 +3,14 @@ import { useContext, useState } from "react";
 
 const Rules1 = () => {
   const {  url, setUrl } = useContext(UrlContext);
-  const { difficulty} = useContext(UrlContext);
-  const { category } = useContext(UrlContext);
+  const { difficulty, setDifficulty} = useContext(UrlContext);
+  const { category, setCategory } = useContext(UrlContext);
   const [active, setActive] = useState("list-theme");
   
   function handleUrl(category) {
 
+    setCategory(category);
     setUrl(`https://opentdb.com/api.php?amount=50&category=${category}&difficulty=${difficulty}`);
-
     const categoriesBackgrounds = {
       10 : 'linear-gradient(45deg, #8e017a, #290180)',
       15 : 'linear-gradient(45deg, #FF0002, #00317A)',

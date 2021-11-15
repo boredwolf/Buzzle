@@ -4,14 +4,16 @@ import { useContext, useState } from "react";
 const Rules2 = () => {
   const {  url, setUrl } = useContext(UrlContext);
   const { difficulty, setDifficulty} = useContext(UrlContext);
+  const { category, setCategory} = useContext(UrlContext);
   const [active, setActive] = useState("list-theme");
 
-  /*
-  function handleUrl(){
+  
+  function handleDifficulty(difficulty){
+  setDifficulty(difficulty);
   setUrl(`https://opentdb.com/api.php?amount=50&category=${category}&difficulty=${difficulty}`);
   setActive(event.target.id);
   }
-  */
+  
 
   return (
     <div>
@@ -20,19 +22,19 @@ const Rules2 = () => {
       <ul className="ul-list">
         <li id='easy'
           className={active === 'easy' ? "list-themeactive" : 'list-theme'}
-          onClick={() => setDifficulty('&difficulty=easy')}
+          onClick={() => handleDifficulty('easy')}
         >
           Easy
         </li>
         <li id='medium'
           className={active === 'medium' ? "list-themeactive" : 'list-theme'}
-          onClick={() => setDifficulty('&difficulty=medium')}
+          onClick={() => handleDifficulty('medium')}
         >
           Medium
         </li>
         <li id='hard'
           className={active === 'hard' ? "list-themeactive" : 'list-theme'}
-          onClick={() => setDifficulty('&difficulty=hard')}
+          onClick={() => handleDifficulty('hard')}
         >
           Hard
         </li>
