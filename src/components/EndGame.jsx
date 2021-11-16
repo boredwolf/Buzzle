@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import logo from "../assets/images/logo-violet.png";
+import Scores from "./Scores";
 import { NavLink } from "react-router-dom";
 import Award from "./Award";
 

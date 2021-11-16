@@ -4,10 +4,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Questions from './components/Questions';
 import EndGame from './components/EndGame';
-import Scores from './components/Scores';
 import Welcome from './components/Welcome';
+import Scores from './components/Scores';
+import Settings from './components/Settings';
 import Rules3 from './components/Rules3';
 import UrlContext from './Contexts/UrlContext';
+
 
 function App() {
   const [username, setUsername] = useState( 'Choose your username below ')
@@ -31,6 +33,9 @@ function App() {
         </Route>
         <Route path="/home">
           <Home username={username} onUserNameChange={onUserNameChange} />
+        </Route>
+        <Route exact path="/settings">
+          <Settings username={username} />
         </Route>
         <Route path="/questions">
           <Questions username={username} onScoreChange={setScore} />

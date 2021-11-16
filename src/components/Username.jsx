@@ -11,7 +11,7 @@ const Username = ({ onNameSelected }) => {
       <Namegenerator onNameSelected={onNameSelected} />
       <div className="play-button-container">
         <button className="play-button">
-          <Link to="/Questions">PLAY !</Link>
+          <Link to="/Settings">Go !</Link>
         </button>
       </div>
     </div>
