@@ -11,7 +11,6 @@
   padding: 0;
 }
 body {
-  overflow: hidden;
   background: linear-gradient(45deg, #8e017a, #290180);
   background-image: linear-gradient(to bottom right, #290180 0%, #8e017a 100%);
   height: 100vh;
@@ -111,7 +110,6 @@ h3 {
 
 .div-rules {
   width: 45vw;
-  height: 60vh;
   display: flex;
   text-align: center;
   margin: 1%;
@@ -155,8 +153,9 @@ h3 {
 
 .close-button-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 97%;
+  align-items: center;
 }
 
 .home-logo-help-container {
@@ -196,6 +195,20 @@ h3 {
   animation: spin 2s linear infinite;
 }
 
+.endgame-container {
+  color: var(--color-second);
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgba(222, 210, 40, 0.15);
+  border-radius: 30px;
+  border: 5px solid var(--color-second);
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -227,8 +240,6 @@ h3 {
   align-items: flex-start;
   justify-content: center;
   width: 200px;
-  margin-bottom: 10px;
-  margin-top: -45px;
 }
 
 .num-questions {
@@ -337,6 +348,7 @@ h3 {
 .play-button-container {
   display: flex;
   justify-content: center;
+  margin: 1%;
 }
 
 ul {
@@ -352,7 +364,7 @@ a {
   text-decoration: none;
 }
 .play-button {
-  border: 5px solid white;
+  border: 3px solid white;
   border-radius: 15px;
   color: var(--color-second);
   padding: 1.5rem;
@@ -362,7 +374,6 @@ a {
   background-color: #8e017a;
   font-family: var(--font-second);
   font-size: 1.2rem;
-  font-weight: bold;
   cursor: pointer;
 }
 
@@ -476,6 +487,10 @@ ul {
 /* Responsive design */
 
 @media screen and (max-width: 600px) {
+body{
+  overflow: hidden;
+}
+
   .welcome-logo {
     width: 80%;
   }
@@ -505,20 +520,17 @@ ul {
   .username {
     display: flex;
     align-items: center;
-    padding-bottom: 20 px;
+    margin: 1%;
   }
   .list-theme {
     font-size: 1em;
     margin: 3px;
   }
 
-  .play-button {
-    height: 8vh;
-    padding: 1vw;
-    margin: 0;
+  .play-button{
+  height: 8vh;
+  padding: 2vw;
   }
-
-
 
   .button-pickit {
     width: 20vw;
@@ -541,6 +553,15 @@ ul {
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+
+  .home{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hello-user {
+    text-transform: capitalize;
   }
 
   #logo-questions {
@@ -592,9 +613,18 @@ ul {
   .questions {
     text-align: center;
   }
+
+  .endgame-buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .username-cap {
+    text-transform: capitalize;
+  }
 }
 /* End Responsive design */
-
 
 /*   Rules */
 .text-rules-container {
@@ -610,3 +640,5 @@ ul {
   width: 100%;
   margin-bottom: 20px;
 }
+
+/* Home */

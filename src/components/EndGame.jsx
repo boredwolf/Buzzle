@@ -22,7 +22,7 @@ const EndGame = ({ username, score }) => {
   return (
     loaded && (
       <div className="questions-container">
-        <div className="questions">
+        <div className="endgame-container">
           <div id="logo-questions">
             <img className="logo" src={logo} alt="logo Buzzle" />
           </div>
@@ -31,7 +31,7 @@ const EndGame = ({ username, score }) => {
             <div className="infos-endgame">Score : {score} points</div>
 
             <p className="endgame-quote">
-              As Trump would say : {username} {quote}
+              As Trump would say : <span className="username-cap">{username}</span> {quote}
             </p>
             <div className="endgame-buttons">
               <NavLink exact to="/Questions">
