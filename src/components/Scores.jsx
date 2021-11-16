@@ -1,4 +1,6 @@
+import React from 'react';
 import logo from '../assets/images/logo-violet.png';
+
 const Scores = () => {
 return(
 <div className="questions-container">
