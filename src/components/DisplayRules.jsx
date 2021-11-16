@@ -16,26 +16,6 @@ const DisplayRules = ({ onNameSelected }) => {
     <div id="display-rules">
       <div className="div-surname-rules">
         <Username onNameSelected={onNameSelected} />
-        <div className="div-rules">
-          <Router>
-            <Switch>
-              <Route exact path="/home" component={Rules1} />
-              <Route path="/rules2" component={Rules2} />
-              <Route path="/rules3" component={Rules3} />
-            </Switch>
-            <nav className="container-button">
-              <NavLink exact activeClassName="active" to="/home">
-                <RadioButtonCheckedIcon />
-              </NavLink>
-              <NavLink activeClassName="active" to="/rules2">
-                <RadioButtonCheckedIcon />
-              </NavLink>
-              <NavLink activeClassName="active" to="/rules3">
-                <RadioButtonCheckedIcon />
-              </NavLink>
-            </nav>
-          </Router>
-        </div>
       </div>
     </div>
   );
