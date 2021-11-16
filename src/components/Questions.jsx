@@ -118,7 +118,7 @@ function Questions({ username, onScoreChange }) {
                 />
 
                 <div className="button-container">
-                  <Questionaire
+                  <Questionnaire
                     data={questions[qInd]}
                     showAnswers={showAnswers}
                     handleAnswer={handleAnswer}
