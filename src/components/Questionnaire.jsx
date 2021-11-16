@@ -33,4 +33,4 @@ const Questionnaire = ({
   );
 };
 
-export default Questionaire;
+export default Questionnaire;
