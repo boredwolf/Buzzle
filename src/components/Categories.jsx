@@ -12,7 +12,7 @@ const Categories = () => {
     setCategory(category);
     setUrl(`https://opentdb.com/api.php?amount=50&category=${category}&difficulty=${difficulty}&encode=base64`);
     const categoriesBackgrounds = {
-      10 : 'linear-gradient(45deg, #8e017a, #290180)',
+      9 : 'linear-gradient(45deg, #8e017a, #290180)',
       15 : 'linear-gradient(45deg, #FF0002, #00317A)',
       23 : 'linear-gradient(45deg, #FFBA0A, #00317A)',
       11 : 'linear-gradient(45deg, #4B8209, #00317A)',
@@ -29,7 +29,7 @@ const Categories = () => {
       <ul className="ul-list">
         <li id='1'
           className={active === '1' ? "list-themeactive" : 'list-theme'}
-          onClick={() => handleUrl(10)}
+          onClick={() => handleUrl(9)}
         >
           Random theme
         </li>

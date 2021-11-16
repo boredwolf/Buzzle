@@ -8,7 +8,7 @@ const Home = ({
   onUserNameChange,
 }) => {
   return (
-    <div>
+    <div className="home">
       <div id="logo">
       <div className="home-logo-help-container">
         <img className="logo" src={logo} alt="logo Buzzle" />

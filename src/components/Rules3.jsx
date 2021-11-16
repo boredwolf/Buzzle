@@ -6,10 +6,11 @@ const Rules3 = () => {
   return (
       <div className="questions-container">
         <div className="text-rules-container">
+          
+          <div className="close-button-container">
           <div id="logo-questions">
             <img className="logo" src={logo} alt="logo Buzzle" />
           </div>
-          <div className="close-button-container">
             <Link to="/Home">
               <CancelRoundedIcon sx={{ fontSize: 40 }} />
             </Link>
