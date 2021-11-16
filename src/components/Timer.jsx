@@ -6,6 +6,7 @@ const Timer = ({ counter = 200, setCounter, onTimeout }) => {
       onTimeout();
       return;
     }
+
     const timeOut = setTimeout(() => setCounter(counter - 1), 1000);
 
     return () => {

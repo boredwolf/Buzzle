@@ -10,47 +10,68 @@ import Settings from './components/Settings';
 import Rules3 from './components/Rules3';
 import UrlContext from './Contexts/UrlContext';
 
-
 function App() {
-  const [username, setUsername] = useState( 'Choose your username below ')
-  const [url, setUrl] = useState()
-  const [difficulty, setDifficulty] = useState("")
-  const [category, setCategory] = useState("")
-  const [score, setScore] = useState(0);
+  const [username, setUsername] = useState('Choose your username below ');
+  const [url, setUrl] = useState();
+  const [difficulty, setDifficulty] = useState('');
+  const [category, setCategory] = useState('');
+  const [finalScore, setFinalScore] = useState(0);
 
+  function onUserNameChange(newUsername) {
+    setUsername(newUsername);
+  }
 
-  function onUserNameChange(username) {
-    setUsername(username);
+  async function onFinish(finishScore) {
+    setFinalScore(finishScore);
+
+    await fetch(`${process.env.REACT_APP_BUZZLE_API}/leaderboard`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, score: finishScore }),
+    });
   }
 
   return (
     <BrowserRouter>
-    <UrlContext.Provider
-    value={{url, setUrl, difficulty, setDifficulty, category, setCategory}}>
-      <Switch>
-        <Route exact path="/">
-          <Welcome />
-        </Route>
-        <Route path="/home">
-          <Home username={username} onUserNameChange={onUserNameChange} />
-        </Route>
-        <Route exact path="/settings">
-          <Settings username={username} />
-        </Route>
-        <Route path="/questions">
-          <Questions username={username} onScoreChange={setScore} />
-        </Route>
-        <Route path="/endgame">
-          <EndGame username={username} score={score}/>
-        </Route>
-        <Route path="/scores">
-          <Scores />
-        </Route>
-        <Route path="/rules3">
-          <Rules3 />
-        </Route>
-      </Switch>
-    </UrlContext.Provider>
+      <UrlContext.Provider
+        value={{
+          url,
+          setUrl,
+          difficulty,
+          setDifficulty,
+          category,
+          setCategory,
+        }}
+      >
+        <Switch>
+          <Route exact path="/">
+            <Welcome />
+          </Route>
+          <Route path="/home">
+            <Home username={username} onUserNameChange={onUserNameChange} />
+          </Route>
+          <Route exact path="/settings">
+            <Settings username={username} />
+          </Route>
+          <Route path="/questions">
+            <Questions
+              username={username}
+              onFinish={(score) => onFinish(score)}
+            />
+          </Route>
+          <Route path="/endgame">
+            <EndGame username={username} score={finalScore} />
+          </Route>
+          <Route path="/scores">
+            <Scores />
+          </Route>
+          <Route path="/rules3">
+            <Rules3 />
+          </Route>
+        </Switch>
+      </UrlContext.Provider>
     </BrowserRouter>
   );
 }
