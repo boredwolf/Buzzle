@@ -6,6 +6,7 @@ import Questions from './components/Questions';
 import EndGame from './components/EndGame';
 import Scores from './components/Scores';
 import Welcome from './components/Welcome';
+import Rules3 from './components/Rules3';
 import UrlContext from './Contexts/UrlContext';
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path="/scores">
           <Scores />
+        </Route>
+        <Route path="/rules3">
+          <Rules3 />
         </Route>
       </Switch>
     </UrlContext.Provider>
