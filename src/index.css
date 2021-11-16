@@ -287,12 +287,16 @@ h3 {
 }
 
 
-#green-button {
+.green-button {
   background-color: green;
 }
 
-#red-button {
+.red-button {
   background-color: red;
+}
+
+.white-button {
+  background-color: white;
 }
 
 /***** END of CSS for Questions component ********/
