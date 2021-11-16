@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo-violet.png";
 import Scores from "./Scores";
-import { NavLink } from "react-router-dom";
 import Award from "./Award";
 
 const EndGame = ({ username, score }) => {
@@ -37,7 +37,7 @@ const EndGame = ({ username, score }) => {
               <NavLink exact to="/Questions">
                 <button type="button" className="end-button">Replay</button>
               </NavLink>
-              <NavLink exact to="/Scores">
+              <NavLink exact to="/scores">
                 <button type="button" className="end-button">Leaderboard</button>{" "}
               </NavLink>
             </div>

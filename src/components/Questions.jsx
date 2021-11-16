@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useHistory } from "react-router-dom";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import PlayerInfos from "./PlayerInfos";
 import logo from "../assets/images/logo-violet.png";
@@ -8,66 +7,69 @@ import Timer from "./Timer";
 import UrlContext from "../Contexts/UrlContext";
 import Questionnaire from "./Questionnaire";
 
-function Questions({ username, onScoreChange }) {
+const TIME_FOR_QUESTION = 20;
+const TIME_FOR_SHOWING_ANSWERS = 5;
+
+function Questions({ username, onFinish }) {
+  const history = useHistory();
   const { url, setUrl } = useContext(UrlContext);
   const [questions, setQuestions] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [qInd, setQInd] = useState(0);
   const [score, setScore] = useState(0);
-  const [counter, setCounter] = useState(20);
+  const [counter, setCounter] = useState(TIME_FOR_QUESTION);
   const [life, setLife] = useState(3);
-  const history = useHistory();
   const [answered, setAnswered] = useState(false);
   const [showAnswers, setShowAnswers] = useState(false);
+
+  const endGame = () => {
+    onFinish(score);
+    history.push("/endgame");
+  };
 
   const handleAnswer = (answer) => {
     // set the counter and index
     setTimeout(() => {
-      if (qInd + 1 < questions.length) {
-        setQInd(qInd + 1);
-      } else {
-        setQInd(1000);
+      const nextQuestionIndex = qInd + 1;
+
+      if (nextQuestionIndex >= questions.length) {
+        return endGame();
       }
-      setCounter(20);
+
+      setQInd(nextQuestionIndex);
+      setCounter(TIME_FOR_QUESTION);
       setShowAnswers(false);
     }, 5000);
 
     if (!showAnswers) {
-      //Prevent double answers
-      //set score and life if correct answer or not
+      // Prevent double answers
+      // set score and life if correct answer or not
       if (answer === questions[qInd].correct_answer) {
         setScore(score + 100);
-        setCounter(5);
       } else {
-        setCounter(5);
-        handleLife();
+        setLife(life - 1);
         setAnswered(true);
       }
+
+      setCounter(TIME_FOR_SHOWING_ANSWERS);
       setShowAnswers(true);
     }
   };
 
-  //function to handle the life
-  function handleLife() {
-    if (life > 1) {
-      setLife(life - 1);
-    }
-
-    if (life === 1) {
-      setLife(life - 1);
+  useEffect(() => {
+    if (life === 0) {
       setTimeout(() => {
-        history.push("/endgame");
-      }, 2000);
+        endGame();
+      }, TIME_FOR_SHOWING_ANSWERS * 1000);
     }
-  }
+  }, [life]);
 
   function onTimeout() {
     handleAnswer("");
   }
 
-  //fetching the api data
+  // fetching the api data
   useEffect(() => {
-    console.log(url);
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -82,10 +84,6 @@ function Questions({ username, onScoreChange }) {
         setLoaded(true);
       });
   }, []);
-
-  useEffect(() => {
-    onScoreChange(score);
-  }, [score]);
 
   return (
     <div>
