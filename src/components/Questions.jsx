@@ -114,7 +114,7 @@ function Questions({ username, onFinish }) {
                   setCounter={setCounter}
                   onTimeout={onTimeout}
                 />
-                <Link to="/Home">
+                <Link to="/home">
                   <CancelRoundedIcon sx={{ fontSize: 40 }} />
                 </Link>
               </div>

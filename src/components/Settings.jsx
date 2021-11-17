@@ -28,14 +28,16 @@ const Settings = ({ username }) => {
             <div className="div-rules">
               <Difficulty />
               <div className="play-button-container">
-                <button className="play-button">
-                  <Link to="/questions">Play !</Link>
-                </button>
+                <Link to="/questions">
+                  <button type="button" className="play-button">
+                    Play !
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
-        <div className="play-button-container"></div>
+        <div className="play-button-container" />
       </div>
     </>
   );

@@ -23,20 +23,19 @@ const EndGame = ({ username, score }) => {
   return (
     loaded && (
       <>
-      <div className="rules">
-        <Link to="/Rules3">
-          <HelpIcon />
-        </Link>
-      </div>
-      <div className="home">
-        <div id="logo">
-          <div className="home-logo-help-container">
-            <img className="logo" src={logo} alt="logo Buzzle" />
-          </div>
+        <div className="rules">
+          <Link to="/rules3">
+            <HelpIcon />
+          </Link>
         </div>
-          
+        <div className="home">
+          <div id="logo">
+            <div className="home-logo-help-container">
+              <img className="logo" src={logo} alt="logo Buzzle" />
+            </div>
+          </div>
+
           <div className="questions-container">
-            
             <div className="endgame-container">
               <Award score={score} />
               <div className="endgame-quote-container">
@@ -47,12 +46,12 @@ const EndGame = ({ username, score }) => {
                   <span className="username-cap">{username}</span> {quote}
                 </p>
                 <div className="endgame-buttons">
-                  <NavLink exact to="/Questions">
+                  <NavLink exact to="/questions">
                     <button type="button" className="end-button">
                       Replay
                     </button>
                   </NavLink>
-                  <NavLink exact to="/Scores">
+                  <NavLink exact to="/scores">
                     <button type="button" className="end-button">
                       Leaderboard
                     </button>{" "}
@@ -61,10 +60,10 @@ const EndGame = ({ username, score }) => {
               </div>
             </div>
           </div>
-          </div>
-          </>
-          )
-          );
-          };
-          
-          export default EndGame;
+        </div>
+      </>
+    )
+  );
+};
+
+export default EndGame;

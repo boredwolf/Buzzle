@@ -6,9 +6,8 @@ const Rules1 = () => {
   const { difficulty, setDifficulty} = useContext(UrlContext);
   const { category, setCategory } = useContext(UrlContext);
   const [active, setActive] = useState("list-theme");
-  
-  function handleUrl(category) {
 
+  function handleUrl(category) {
     setCategory(category);
     setUrl(`https://opentdb.com/api.php?amount=50&category=${category}&difficulty=${difficulty}&encode=base64`);
     const categoriesBackgrounds = {

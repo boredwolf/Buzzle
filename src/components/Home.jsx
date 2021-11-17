@@ -1,7 +1,7 @@
-import logo from "../assets/images/logo-violet.png";
-import DisplayRules from "./DisplayRules";
 import HelpIcon from "@mui/icons-material/Help";
 import { Link } from "react-router-dom";
+import logo from "../assets/images/logo-violet.png";
+import DisplayRules from "./DisplayRules";
 
 const Home = ({
   username = "Choose your username below ",
@@ -10,7 +10,7 @@ const Home = ({
   return (
     <>
       <div className="rules">
-        <Link to="/Rules3">
+        <Link to="/rules3">
           <HelpIcon />
         </Link>
       </div>

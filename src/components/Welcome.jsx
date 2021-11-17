@@ -11,7 +11,9 @@ const Welcome = () => {
         </div>
         <div className="play-button-container">
           <NavLink exact to="/home">
-            <button className="play-button">PLAY</button>
+            <button type="button" className="play-button">
+              PLAY
+            </button>
           </NavLink>
         </div>
       </div>
