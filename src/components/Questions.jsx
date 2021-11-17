@@ -6,6 +6,9 @@ import logo from "../assets/images/logo-violet.png";
 import Timer from "./Timer";
 import UrlContext from "../Contexts/UrlContext";
 import Questionnaire from "./Questionnaire";
+import HelpIcon from "@mui/icons-material/Help";
+
+
 
 const TIME_FOR_QUESTION = 20;
 const TIME_FOR_SHOWING_ANSWERS = 5;
@@ -86,9 +89,21 @@ function Questions({ username, onFinish }) {
   }, []);
 
   return (
+    
     <div>
+       <div className="rules">
+        <Link to="/Rules3">
+          <HelpIcon />
+        </Link>
+      </div>
+      <div className="home">
+        <div id="logo">
+          <div className="home-logo-help-container">
+            <img className="logo" src={logo} alt="logo Buzzle" />
+          </div>
+        </div>
       <div className="questions-container">
-        <img className="logo logo-questions" src={logo} alt="logo Buzzle" />
+        
         <div className="questions">
           {!loaded && <div className="loader" />}
           {loaded && qInd < questions.length && (
@@ -139,6 +154,7 @@ function Questions({ username, onFinish }) {
 
         <PlayerInfos username={username} score={score} life={life} />
       </div>
+    </div>
     </div>
   );
 }

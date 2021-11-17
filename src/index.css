@@ -50,7 +50,33 @@ h3 {
   text-shadow: 1px 1px 2px black;
 }
 
+/* CSS home */
+
+.rules {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5%;
+}
+
+.home-logo-help-container {
+  display: flex;
+  justify-content: center;
+  width: 97%;
+  align-items: center;
+}
+
 /* CSS Rules*/
+
+.rules-container {
+  display: flex;
+  width: 70vw;
+  height: 80vh;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+}
 
 .hello-user {
   margin-bottom: 10px;
@@ -65,7 +91,7 @@ h3 {
   font-size: 1.5em;
   padding: 6px;
   list-style: none;
-  margin: 5px 40px 5px 40px;
+  margin: 5px 20px 5px 20px;
 }
 .list-theme {
   font-family: var(--font-primary);
@@ -100,16 +126,17 @@ h3 {
   text-transform: capitalize;
 }
 
-.ul-list {
-  text-align: center;
+.ul-list-rules {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   padding-bottom: 10px;
+  font-size: 0.6em;
 }
 
 .div-rules {
   width: 45vw;
+  height: auto;
   display: flex;
   text-align: center;
   margin: 1%;
@@ -148,22 +175,31 @@ h3 {
 .active svg {
   color: #ff00ae;
 }
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+/***CSS settings ***/
+
+.ul-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 10px;
+  font-size: 0.8em;
+}
 /***** CSS for Questions component ********/
 
 .close-button-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 97%;
   align-items: center;
+  padding-right: 6%;
 }
 
-.home-logo-help-container {
-  display: flex;
-  justify-content: space-between;
-  width: 97%;
-  align-items: center;
-}
 .container-questions-answers {
   display: flex;
   flex-direction: column;
@@ -231,7 +267,7 @@ h3 {
   justify-content: center;
   margin: 20px;
   width: 80%;
-  font-family: var(--font-secondary);
+  font-family: var(--font-second);
   color: var(--color-second);
 }
 
@@ -256,7 +292,7 @@ h3 {
 .questions-container {
   display: flex;
   width: 70vw;
-  height: 100vh;
+  height: 90vh;
   margin: auto;
   flex-direction: column;
   justify-content: center;
@@ -375,6 +411,8 @@ a {
   font-family: var(--font-second);
   font-size: 1.2rem;
   cursor: pointer;
+  box-shadow: 1px 1px 2px black;
+  text-shadow: 1px 1px 2px black;
 }
 
 /* CSS Timer */
@@ -427,9 +465,10 @@ ul {
 .endgame-quote {
   font-size: 20px;
   color: var(--color-second);
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   font-weight: bold;
   padding-bottom: 20px;
+  text-align: center;
 }
 
 .avatar-img {
@@ -452,12 +491,14 @@ ul {
   text-align: center;
   justify-content: center;
   background-color: #8e017a;
-  font-family: var(--font-secondary);
+  font-family: var(--font-second);
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   width: 200px;
   text-align: center;
+  box-shadow: 1px 1px 2px black;
+  text-shadow: 1px 1px 2px black;
 }
 
 .infos-endgame {
@@ -468,6 +509,7 @@ ul {
   margin-top: 10px;
   padding-bottom: 20px;
   padding-top: 20px;
+  text-shadow: 1px 1px 2px black;
 }
 
 /* Endgame CSS end*/
@@ -486,10 +528,10 @@ ul {
 
 /* Responsive design */
 
-@media screen and (max-width: 600px) {
-body{
-  overflow: hidden;
-}
+@media screen and (max-width: 780px) {
+  body {
+    overflow: hidden;
+  }
 
   .welcome-logo {
     width: 80%;
@@ -500,7 +542,7 @@ body{
   }
 
   h2 {
-    font-size: 1.2em;
+    font-size: 1.7em;
   }
 
   h3 {
@@ -509,7 +551,7 @@ body{
 
   .div-rules {
     width: 90vw;
-    height: 40vh;
+    height: 30vh;
   }
   .random-username {
     font-size: 1em;
@@ -522,14 +564,19 @@ body{
     align-items: center;
     margin: 1%;
   }
+  .username-settings,
+  .rules-title {
+    font-size: 1.2em;
+  }
+
   .list-theme {
     font-size: 1em;
     margin: 3px;
   }
 
-  .play-button{
-  height: 8vh;
-  padding: 2vw;
+  .play-button {
+    height: 8vh;
+    padding: 2vw;
   }
 
   .button-pickit {
@@ -550,14 +597,11 @@ body{
 
   #display-rules {
     width: 100%;
+    height: 50%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-  }
-
-  .home{
-    display: flex;
-    flex-direction: column;
+    align-items: flex-start;
   }
 
   .hello-user {
@@ -570,6 +614,7 @@ body{
 
   .questions-container {
     width: 90vw;
+    height: 80vh;
   }
 
   .question {
@@ -618,6 +663,10 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+
+  .infos-endgame {
+    font-size: 20px;
   }
 
   .username-cap {

@@ -10,7 +10,7 @@ const PlayerInfos = ({ username, score, life }) => {
           <li>{username}</li>
         </ul>
         <ul>
-          <li>Score: {score}points</li>
+          <li>Score: {score} points</li>
         </ul>
         <ul>
           <li>{life >= 1 ? <FavoriteIcon /> : <FavoriteBorderIcon />}</li>
