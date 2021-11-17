@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import logo from "../assets/images/logo-violet.png";
 
 const Scores = () => {
-  const urlApiLeaderboard = "http://localhost:3001/api/leaderboard/order";
+  const urlApiLeaderboard = `${process.env.REACT_APP_BUZZLE_API}/leaderboard/order`;
   const [leaderboard, setLeaderboard] = useState([]);
 
   useEffect(() => {
