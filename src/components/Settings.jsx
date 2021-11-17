@@ -1,11 +1,13 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo-violet.png";
 import Categories from "./Categories";
 import Difficulty from "./Difficulty";
 import HelpIcon from "@mui/icons-material/Help";
+import UrlContext from "../Contexts/UrlContext";
 
 const Settings = ({ username }) => {
+  const {category, difficulty} = useContext(UrlContext)
   return (
     <>
       <div className="rules">
@@ -27,18 +29,18 @@ const Settings = ({ username }) => {
             </div>
             <div className="div-rules">
               <Difficulty />
+              {category && difficulty ? 
               <div className="play-button-container">
-                <Link to="/questions">
-                  <button type="button" className="play-button">
-                    Play !
-                  </button>
-                </Link>
+              <Link to="/questions">
+                <button className="play-button">Play !
+                </button>
+                </Link> 
+              </div> : null}
               </div>
             </div>
           </div>
         </div>
         <div className="play-button-container" />
-      </div>
     </>
   );
 };
