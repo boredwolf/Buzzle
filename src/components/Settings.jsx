@@ -11,7 +11,7 @@ const Settings = ({ username }) => {
   return (
     <>
       <div className="rules">
-        <Link to="/Rules3">
+        <Link to="/rules3">
           <HelpIcon />
         </Link>
       </div>
