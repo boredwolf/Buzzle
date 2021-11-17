@@ -2,18 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Namegenerator from "./Namegenerator";
 
-const Username = ({ onNameSelected }) => {
+const Username = ({ onNameSelected, username }) => {
   return (
     <div className="div-rules">
       <h2 className="choose-username">Choose your username </h2>
-      <Namegenerator onNameSelected={onNameSelected} />
-      <div className="play-button-container">
-        <Link to="/settings">
-          <button type="button" className="play-button">
-            Go !
-          </button>
-        </Link>
-      </div>
+      <Namegenerator onNameSelected={onNameSelected} username={username} />
+    
     </div>
   );
 };

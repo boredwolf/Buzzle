@@ -7,6 +7,7 @@ const Home = ({
   username = "Choose your username below ",
   onUserNameChange,
 }) => {
+  
   return (
     <>
       <div className="rules">
@@ -22,8 +23,8 @@ const Home = ({
         </div>
         
 
-        <DisplayRules onNameSelected={onUserNameChange} />
-      </div>
+      <DisplayRules onNameSelected={onUserNameChange} username={username}/>
+    </div>
     </>
   );
 };
