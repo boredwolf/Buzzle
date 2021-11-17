@@ -1,8 +1,6 @@
-import React from 'react';
-import {
-  Link,
-} from 'react-router-dom';
-import Namegenerator from './Namegenerator';
+import React from "react";
+import { Link } from "react-router-dom";
+import Namegenerator from "./Namegenerator";
 
 const Username = ({ onNameSelected }) => {
   return (
@@ -10,9 +8,11 @@ const Username = ({ onNameSelected }) => {
       <h2 className="choose-username">Choose your username </h2>
       <Namegenerator onNameSelected={onNameSelected} />
       <div className="play-button-container">
-        <button className="play-button">
-          <Link to="/Settings">Go !</Link>
-        </button>
+        <Link to="/settings">
+          <button type="button" className="play-button">
+            Go !
+          </button>
+        </Link>
       </div>
     </div>
   );

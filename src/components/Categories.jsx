@@ -10,7 +10,7 @@ const Categories = () => {
   function handleUrl(category) {
 
     setCategory(category);
-    setUrl(`https://opentdb.com/api.php?amount=50&category=${category}&difficulty=${difficulty}&encode=base64`);
+    setUrl(`https://opentdb.com/api.php?amount=40&category=${category}&difficulty=${difficulty}&encode=base64`);
     const categoriesBackgrounds = {
       9 : 'linear-gradient(45deg, #8e017a, #290180)',
       15 : 'linear-gradient(45deg, #FF0002, #00317A)',
