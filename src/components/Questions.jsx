@@ -37,7 +37,7 @@ function Questions({ username, onFinish }) {
       if (nextQuestionIndex >= questions.length) {
         return endGame();
       }
-
+      setAnswered(false)
       setQInd(nextQuestionIndex);
       setCounter(TIME_FOR_QUESTION);
       setShowAnswers(false);
@@ -48,6 +48,7 @@ function Questions({ username, onFinish }) {
       // set score and life if correct answer or not
       if (answer === questions[qInd].correct_answer) {
         setScore(score + 100);
+        setAnswered(true)
       } else {
         setLife(life - 1);
         setAnswered(true);
@@ -135,6 +136,7 @@ function Questions({ username, onFinish }) {
                       data={questions[qInd]}
                       showAnswers={showAnswers}
                       handleAnswer={handleAnswer}
+                      answered={answered}
                     />
                   </div>
                 </div>
