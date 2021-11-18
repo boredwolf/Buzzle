@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import HelpIcon from "@mui/icons-material/Help";
 import logo from "../assets/images/logo-violet.png";
 import Categories from "./Categories";
 import Difficulty from "./Difficulty";
@@ -10,11 +9,6 @@ const Settings = ({ username }) => {
   const { category, difficulty } = useContext(UrlContext);
   return (
     <>
-      <div className="rules">
-        <Link to="/rules3">
-          <HelpIcon />
-        </Link>
-      </div>
       <div className="home">
         <div id="logo">
           <div className="home-logo-help-container">

@@ -1,7 +1,8 @@
 import './App.css';
 import './style.scss';
 import { useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import HelpIcon from '@mui/icons-material/Help';
 import Home from './components/Home';
 import Questions from './components/Questions';
 import EndGame from './components/EndGame';
@@ -36,6 +37,11 @@ function App() {
 
   return (
     <BrowserRouter>
+      <div className="rules">
+        <Link to="/rules3">
+          <HelpIcon />
+        </Link>
+      </div>
       <UrlContext.Provider
         value={{
           url,
