@@ -45,11 +45,17 @@ h2 {
   padding-bottom: 5px;
   text-shadow: 1px 1px 2px black;
 }
+
+#username-cap{
+  text-transform: capitalize;
+}
 h3 {
   font-family: var(--font-second);
   font-size: 1.6em;
   text-shadow: 1px 1px 2px black;
 }
+
+
 
 /* CSS home */
 
@@ -742,8 +748,7 @@ width: 35%;
   .infos-endgame {
     font-size: 20px;
   }
-
-  .username-cap {
+.username-cap {
     text-transform: capitalize;
   }
 
@@ -760,9 +765,6 @@ td, th {
   padding-right: 0;
   padding-top: 0;
   padding-bottom: 0;
-
-}
-
 }
 
 @media screen and (max-width: 480px) {
