@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/images/logo-violet.png";
 import HelpIcon from "@mui/icons-material/Help";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Scores = () => {
   const urlApiLeaderboard = `${process.env.REACT_APP_BUZZLE_API}/leaderboard/order`;
@@ -28,16 +28,42 @@ const Scores = () => {
         </div>
       </div>
       <div className="questions-container">
-        <div className="questions">
+        <div className="container-leaderbord">
           <h2>LeaderBoard</h2>
-          <ul className="ul-list">
-            {leaderboard.map((classement) => (
-              <li className="list-theme">
-                {classement.username}
-                {classement.score}
-              </li>
-            ))}
-          </ul>
+          <div className="table-container">
+            <ul className="ul-list">
+              <table>
+                <tr>
+                  <th>Ranking</th>
+                  <th>Avatar</th>
+                  <th>UserName</th>
+                  <th>Score</th>
+                </tr>
+                <tbody>
+                  {leaderboard.map((classement, index) => (
+                    <tr className="list-theme">
+                      <td>{index + 1}</td>
+                      <td>
+                        <img
+                          src={`https://avatars.dicebear.com/api/personas/${classement.username}.svg`}
+                          className="avatar-leaderboard"
+                        />
+                      </td>
+                      <td>{classement.username}</td>
+                      <td>{classement.score} points</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </ul>
+          </div>
+          <div className="endgame-buttons">
+            <NavLink exact to="/questions">
+              <button type="button" className="end-button">
+                Replay
+              </button>
+            </NavLink>
+          </div>
         </div>
       </div>
     </>

@@ -1,4 +1,5 @@
 const Avatar = ({ randomName }) => {
+  
   return (
     <img
       className="avatar-img"

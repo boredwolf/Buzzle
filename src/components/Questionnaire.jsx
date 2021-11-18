@@ -7,8 +7,8 @@ const Questionnaire = ({
   data: { correct_answer, answers },
 }) => {
   return (
-    <div>
-      <div>
+    <>
+      <>
         {answers.map((answer, idx) => {
           const bgColor = showAnswers
             ? answer === correct_answer
@@ -27,8 +27,8 @@ const Questionnaire = ({
             />
           );
         })}
-      </div>
-    </div>
+      </>
+    </>
   );
 };
 
