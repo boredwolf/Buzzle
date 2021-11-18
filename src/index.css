@@ -330,6 +330,9 @@ h3 {
   font-weight: bold;
   color: var(--color-second);
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button-pickit {
@@ -602,7 +605,7 @@ tr:hover {
   }
 
   .response-button {
-height: 60%;
+height: 35%;
 width: 35%;
   }
 
