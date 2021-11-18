@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo-violet.png";
-import HelpIcon from "@mui/icons-material/Help";
-import { NavLink, Link } from "react-router-dom";
 
 const Scores = () => {
   const urlApiLeaderboard = `${process.env.REACT_APP_BUZZLE_API}/leaderboard/order`;
@@ -15,11 +14,6 @@ const Scores = () => {
 
   return (
     <>
-      <div className="rules">
-        <Link to="/rules3">
-          <HelpIcon />
-        </Link>
-      </div>
       <div className="home">
         <div id="logo">
           <div className="home-logo-help-container">
@@ -47,6 +41,7 @@ const Scores = () => {
                         <img
                           src={`https://avatars.dicebear.com/api/personas/${classement.username}.svg`}
                           className="avatar-leaderboard"
+                          alt="avatar"
                         />
                       </td>
                       <td>{classement.username}</td>

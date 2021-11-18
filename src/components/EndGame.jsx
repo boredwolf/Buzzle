@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo-violet.png";
-import { NavLink, Link } from "react-router-dom";
 import Award from "./Award";
-import HelpIcon from "@mui/icons-material/Help";
 
 const EndGame = ({ username, score }) => {
   const [quote, setQuote] = useState();
@@ -22,11 +21,6 @@ const EndGame = ({ username, score }) => {
   return (
     loaded && (
       <>
-        <div className="rules">
-          <Link to="/rules3">
-            <HelpIcon />
-          </Link>
-        </div>
         <div className="home">
           <div id="logo">
             <div className="home-logo-help-container">

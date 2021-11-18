@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
-import HelpIcon from "@mui/icons-material/Help";
 import PlayerInfos from "./PlayerInfos";
 import logo from "../assets/images/logo-violet.png";
 import Timer from "./Timer";
@@ -91,12 +90,7 @@ function Questions({ username, onFinish }) {
   }, []);
 
   return (
-    <div>
-      <div className="rules">
-        <Link to="/rules3">
-          <HelpIcon />
-        </Link>
-      </div>
+    <div className="component-questions">
       <div className="home">
         <div id="logo">
           <div className="home-logo-help-container">
@@ -142,10 +136,9 @@ function Questions({ username, onFinish }) {
               </div>
             )}
           </div>
-
-          <PlayerInfos username={username} score={score} life={life} />
         </div>
       </div>
+      <PlayerInfos username={username} score={score} life={life} />
     </div>
   );
 }
