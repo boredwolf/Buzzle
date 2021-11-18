@@ -10,6 +10,7 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   background: linear-gradient(45deg, #8e017a, #290180);
   background-image: linear-gradient(to bottom right, #290180 0%, #8e017a 100%);
@@ -70,7 +71,6 @@ h3 {
 .rules-container {
   display: flex;
   width: 70vw;
-  height: 80vh;
   margin: auto;
   flex-direction: column;
   justify-content: center;
@@ -93,6 +93,8 @@ h3 {
   list-style: none;
   margin: 5px 20px 5px 20px;
 }
+
+
 .list-theme {
   font-family: var(--font-primary);
   font-size: 1.5em;
@@ -194,10 +196,10 @@ h3 {
 
 .close-button-container {
   display: flex;
-  justify-content: flex-end;
   width: 97%;
+  justify-content: flex-end;
   align-items: center;
-  padding-right: 6%;
+  padding-right: 5px;
 }
 
 .container-questions-answers {
@@ -292,7 +294,6 @@ h3 {
 .questions-container {
   display: flex;
   width: 70vw;
-  height: 90vh;
   margin: auto;
   flex-direction: column;
   justify-content: center;
@@ -527,14 +528,24 @@ ul {
 }
 
 
-
+/*   Rules */
+.text-rules-container {
+  color: var(--color-second);
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgba(222, 210, 40, 0.15);
+  border-radius: 30px;
+  border: 5px solid var(--color-second);
+  width: 100%;
+  margin-bottom: 20px;
+}
 
 /* Responsive design */
 
 @media screen and (max-width: 780px) {
-  body {
-    overflow: hidden;
-  }
 
   .welcome-logo {
     width: 80%;
@@ -553,8 +564,7 @@ ul {
   }
 
   .div-rules {
-    width: 90vw;
-    height: 30vh;
+    width: 90vw; 
   }
   .random-username {
     font-size: 1em;
@@ -578,7 +588,6 @@ ul {
   }
 
   .play-button {
-    height: 8vh;
     padding: 2vw;
   }
 
@@ -604,7 +613,7 @@ ul {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .hello-user {
@@ -617,7 +626,6 @@ ul {
 
   .questions-container {
     width: 90vw;
-    height: 80vh;
   }
 
   .question {
@@ -672,21 +680,13 @@ ul {
     text-transform: capitalize;
   }
 }
+
+@media screen and (max-width: 480px) {
+
+
+}
 /* End Responsive design */
 
-/*   Rules */
-.text-rules-container {
-  color: var(--color-second);
-  display: flex;
-  flex-direction: column;
-  align-content: space-around;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: rgba(222, 210, 40, 0.15);
-  border-radius: 30px;
-  border: 5px solid var(--color-second);
-  width: 100%;
-  margin-bottom: 20px;
-}
+
 
 /* Home */

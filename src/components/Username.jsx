@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Namegenerator from "./Namegenerator";
 
 const Username = ({ onNameSelected, username }) => {
@@ -7,7 +6,6 @@ const Username = ({ onNameSelected, username }) => {
     <div className="div-rules">
       <h2 className="choose-username">Choose your username </h2>
       <Namegenerator onNameSelected={onNameSelected} username={username} />
-    
     </div>
   );
 };

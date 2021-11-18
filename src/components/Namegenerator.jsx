@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { animalArray, adjectifArray } from "./Names";
 import Avatar from "./Avatar";
-import { Link } from "react-router-dom";
 
 const Namegenerator = ({ onNameSelected, username }) => {
   const [name, setName] = useState("?");
