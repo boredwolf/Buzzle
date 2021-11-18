@@ -544,6 +544,34 @@ ul {
 }
 
 /* Responsive design */
+@media screen and (max-width: 480px){
+  .q-and-a-container{
+    padding-top: 0px;
+  }
+  .question {
+    font-size: 1em;
+  }
+
+  .logo {
+  margin-bottom: 2em;
+  }
+
+  .response-button {
+height: 60%;
+width: 35%;
+  }
+
+  .button-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .close-button-container{
+    justify-content: space-between;
+  }
+}
+
 
 @media screen and (max-width: 780px) {
 
