@@ -37,7 +37,7 @@ const Rules3 = () => {
               </li>
               <li className="rules-theme">
                 For each wrong answer, or if the timer reaches 0, you'll lose a
-                life.
+                life. And for each strike of 5 good answers, you'll get a life back.
               </li>
               <li className="rules-theme">
                 Once you have no life remaining the game is over.
