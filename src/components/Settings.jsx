@@ -21,7 +21,7 @@ const Settings = ({ username }) => {
             <img className="logo" src={logo} alt="logo Buzzle" />
           </div>
         </div>
-        <h2 className="username-settings">Hello {username} !</h2>
+        <h2 className="username-settings">Hello <span id="username-cap">{username}</span>!</h2>
         <div id="display-rules">
           <div className="div-surname-rules">
             <div className="div-rules">
