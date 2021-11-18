@@ -352,7 +352,7 @@ h3 {
   background-color: white;
 }
 
-/***** END of CSS for Questions component ********/
+/***** END of CSS for component ********/
 
 /*Username*/
 
@@ -541,7 +541,46 @@ ul {
   border: 5px solid var(--color-second);
   width: 100%;
   margin-bottom: 20px;
+
 }
+
+.container-leaderbord {
+  color: var(--color-second);
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgba(222, 210, 40, 0.15);
+  border-radius: 30px;
+  border: 5px solid var(--color-second);
+  width: 100%;
+  margin-bottom: 20px;}
+
+table {
+  font-size: 0.8em;
+  padding-top: 1vh;
+  text-align: center;
+}
+
+th {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+td, th {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+
+}
+
+tr:hover {
+  background: rgba(160, 119, 161, 0.8);
+  font-weight: bold;
+}
+
+
 
 /* Responsive design */
 @media screen and (max-width: 480px){
@@ -707,6 +746,23 @@ width: 35%;
   .username-cap {
     text-transform: capitalize;
   }
+
+.table-container {
+  padding: 2vw;
+}  
+
+.avatar-leaderboard {
+width: 40%;
+}
+
+td, th {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+
+}
+
 }
 
 @media screen and (max-width: 480px) {
