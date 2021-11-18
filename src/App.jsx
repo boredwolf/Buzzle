@@ -34,8 +34,6 @@ function App() {
     });
   }
 
-
-    
   return (
     <BrowserRouter>
       <UrlContext.Provider

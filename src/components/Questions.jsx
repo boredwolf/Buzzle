@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { NavLink, Link, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import HelpIcon from "@mui/icons-material/Help";
 import PlayerInfos from "./PlayerInfos";
@@ -37,7 +37,7 @@ function Questions({ username, onFinish }) {
       if (nextQuestionIndex >= questions.length) {
         return endGame();
       }
-      setAnswered(false)
+      setAnswered(false);
       setQInd(nextQuestionIndex);
       setCounter(TIME_FOR_QUESTION);
       setShowAnswers(false);
@@ -48,7 +48,7 @@ function Questions({ username, onFinish }) {
       // set score and life if correct answer or not
       if (answer === questions[qInd].correct_answer) {
         setScore(score + 100);
-        setAnswered(true)
+        setAnswered(true);
       } else {
         setLife(life - 1);
         setAnswered(true);
@@ -73,7 +73,6 @@ function Questions({ username, onFinish }) {
 
   // fetching the api data
   useEffect(() => {
-    console.log(url);
     setTimeout(() => {
       fetch(url)
         .then((response) => response.json())
@@ -88,7 +87,7 @@ function Questions({ username, onFinish }) {
           setQuestions(questions);
           setLoaded(true);
         });
-    }, 3700);
+    }, 3000);
   }, []);
 
   return (
