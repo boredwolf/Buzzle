@@ -65,7 +65,7 @@ app.get('/api/leaderboard/order', async (req, res) => {
   // Exécuter la requête de lecture des données avec tri
   try {
     const [leaderboardOrder] = await db.query(
-      'SELECT username, score FROM leaderboard ORDER BY score DESC LIMIT 10'
+      'SELECT username, score FROM leaderboard ORDER BY score DESC LIMIT 5'
     );
     res.send(leaderboardOrder);
   } catch (e) {

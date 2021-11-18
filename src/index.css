@@ -66,6 +66,7 @@ h3 {
 
 .rules {
   display: flex;
+  justify-content: flex-end;
 }
 
 .home-logo-help-container {

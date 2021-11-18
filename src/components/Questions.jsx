@@ -22,6 +22,7 @@ function Questions({ username, onFinish }) {
   const [life, setLife] = useState(3);
   const [answered, setAnswered] = useState(false);
   const [showAnswers, setShowAnswers] = useState(false);
+  const [goodAnswer, setGoodAndwer] = useState(0);
 
   const endGame = () => {
     onFinish(score);
@@ -45,14 +46,22 @@ function Questions({ username, onFinish }) {
     if (!showAnswers) {
       // Prevent double answers
       // set score and life if correct answer or not
-      if (answer === questions[qInd].correct_answer) {
+      if (answer === questions[qInd].correct_answer && goodAnswer >= 4 && life != 3) {
         setScore(score + 100);
+        setLife(life + 1);
+        setGoodAndwer(0);
+        setAnswered(true);
+      } else if (answer === questions[qInd].correct_answer) {
+        setScore(score + 100);
+        setGoodAndwer(goodAnswer + 1);
         setAnswered(true);
       } else {
+        setGoodAndwer(0)
         setLife(life - 1);
         setAnswered(true);
       }
-
+      console.log(goodAnswer)
+console.log(life)
       setCounter(TIME_FOR_SHOWING_ANSWERS);
       setShowAnswers(true);
     }
