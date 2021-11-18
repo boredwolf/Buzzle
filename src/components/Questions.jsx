@@ -1,14 +1,13 @@
 import { useState, useEffect, useContext } from "react";
-import { NavLink, Link, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
+import HelpIcon from "@mui/icons-material/Help";
 import PlayerInfos from "./PlayerInfos";
 import logo from "../assets/images/logo-violet.png";
 import Timer from "./Timer";
 import UrlContext from "../Contexts/UrlContext";
 import Questionnaire from "./Questionnaire";
-import HelpIcon from "@mui/icons-material/Help";
-
-
+import Ready from "./Ready";
 
 const TIME_FOR_QUESTION = 20;
 const TIME_FOR_SHOWING_ANSWERS = 5;
@@ -38,7 +37,7 @@ function Questions({ username, onFinish }) {
       if (nextQuestionIndex >= questions.length) {
         return endGame();
       }
-
+      setAnswered(false);
       setQInd(nextQuestionIndex);
       setCounter(TIME_FOR_QUESTION);
       setShowAnswers(false);
@@ -49,6 +48,7 @@ function Questions({ username, onFinish }) {
       // set score and life if correct answer or not
       if (answer === questions[qInd].correct_answer) {
         setScore(score + 100);
+        setAnswered(true);
       } else {
         setLife(life - 1);
         setAnswered(true);
@@ -73,26 +73,27 @@ function Questions({ username, onFinish }) {
 
   // fetching the api data
   useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        const questions = data.results.map((question) => ({
-          ...question,
-          answers: [
-            question.correct_answer,
-            ...question.incorrect_answers,
-          ].sort(() => Math.random() - 0.5),
-        }));
-        setQuestions(questions);
-        setLoaded(true);
-      });
+    setTimeout(() => {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          const questions = data.results.map((question) => ({
+            ...question,
+            answers: [
+              question.correct_answer,
+              ...question.incorrect_answers,
+            ].sort(() => Math.random() - 0.5),
+          }));
+          setQuestions(questions);
+          setLoaded(true);
+        });
+    }, 3000);
   }, []);
 
   return (
-    
     <div>
-       <div className="rules">
-        <Link to="/Rules3">
+      <div className="rules">
+        <Link to="/rules3">
           <HelpIcon />
         </Link>
       </div>
@@ -102,59 +103,49 @@ function Questions({ username, onFinish }) {
             <img className="logo" src={logo} alt="logo Buzzle" />
           </div>
         </div>
-      <div className="questions-container">
-        
-        <div className="questions">
-          {!loaded && <div className="loader" />}
-          {loaded && qInd < questions.length && (
-            <div className="q-and-a-container">
-              <div className="close-button-container">
-                <Timer
-                  counter={counter}
-                  setCounter={setCounter}
-                  onTimeout={onTimeout}
-                />
-                <Link to="/home">
-                  <CancelRoundedIcon sx={{ fontSize: 40 }} />
-                </Link>
-              </div>
-              <div className="num-questions">
-                Question {qInd + 1} / {questions.length}
-              </div>
-
-              <div className="container-questions-answers">
-                <h1
-                  className="question"
-                  dangerouslySetInnerHTML={{
-                    __html: atob(questions[qInd].question),
-                  }}
-                />
-
-                <div className="button-container">
-                  <Questionnaire
-                    data={questions[qInd]}
-                    showAnswers={showAnswers}
-                    handleAnswer={handleAnswer}
+        <div className="questions-container">
+          <div className="questions">
+            {!loaded && <Ready setLoaded={setLoaded} />}
+            {loaded && qInd < questions.length && (
+              <div className="q-and-a-container">
+                <div className="close-button-container">
+                  <Timer
+                    counter={counter}
+                    setCounter={setCounter}
+                    onTimeout={onTimeout}
                   />
+                  <Link to="/home">
+                    <CancelRoundedIcon sx={{ fontSize: 40 }} />
+                  </Link>
+                </div>
+                <div className="num-questions">
+                  Question {qInd + 1} / {questions.length}
+                </div>
+
+                <div className="container-questions-answers">
+                  <h1
+                    className="question"
+                    dangerouslySetInnerHTML={{
+                      __html: atob(questions[qInd].question),
+                    }}
+                  />
+
+                  <div className="button-container">
+                    <Questionnaire
+                      data={questions[qInd]}
+                      showAnswers={showAnswers}
+                      handleAnswer={handleAnswer}
+                      answered={answered}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
 
-          {loaded && qInd >= questions.length && (
-            <div className="end-button-container">
-              <NavLink to="/endgame">
-                <button type="button" className="end-button">
-                  End of the Game
-                </button>
-              </NavLink>
-            </div>
-          )}
+          <PlayerInfos username={username} score={score} life={life} />
         </div>
-
-        <PlayerInfos username={username} score={score} life={life} />
       </div>
-    </div>
     </div>
   );
 }

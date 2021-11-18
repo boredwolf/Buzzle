@@ -1,6 +1,7 @@
 import React from "react";
 
 const Questionnaire = ({
+  answered,
   showAnswers,
   handleAnswer,
   data: { correct_answer, answers },
@@ -21,7 +22,7 @@ const Questionnaire = ({
               variant="contained"
               key={idx}
               className={`${bgColor} response-button`}
-              onClick={() => handleAnswer(answer)}
+              onClick={ !answered ? () => handleAnswer(answer) : null}
               dangerouslySetInnerHTML={{ __html: atob(answer) }}
             />
           );

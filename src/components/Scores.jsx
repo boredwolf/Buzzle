@@ -15,32 +15,31 @@ const Scores = () => {
 
   return (
     <>
-<div className="rules">
-        <Link to="/Rules3">
-            <HelpIcon />
+      <div className="rules">
+        <Link to="/rules3">
+          <HelpIcon />
         </Link>
-    </div>
-    <div className="home">
-            <div id="logo">
-                <div className="home-logo-help-container">
-                    <img className="logo" src={logo} alt="logo Buzzle" />
-                </div>
-            </div>
-            </div>
-    <div className="questions-container">
-      <div className="questions">
-       
-        <h2>LeaderBoard</h2>
-        <ul className="ul-list">
-          {leaderboard.map((classement) => (
-            <li className="list-theme">
-              {classement.username}
-              {classement.score}
-            </li>
-          ))}
-        </ul>
       </div>
-    </div>
+      <div className="home">
+        <div id="logo">
+          <div className="home-logo-help-container">
+            <img className="logo" src={logo} alt="logo Buzzle" />
+          </div>
+        </div>
+      </div>
+      <div className="questions-container">
+        <div className="questions">
+          <h2>LeaderBoard</h2>
+          <ul className="ul-list">
+            {leaderboard.map((classement) => (
+              <li className="list-theme">
+                {classement.username}
+                {classement.score}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </>
   );
 };

@@ -317,7 +317,7 @@ h3 {
   width: 20vw;
   margin: 20px 20px 20px 20px;
   border-radius: 10px;
-  background-color: #2e8efc;
+  background-color: #2e31925e;
   border: 2px solid white;
   font-size: 1rem;
   font-weight: bold;
@@ -340,11 +340,11 @@ h3 {
 }
 
 .green-button {
-  background-color: green;
+  background-color: rgba(0, 128, 0, 0.692);
 }
 
 .red-button {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.651);
 }
 
 .white-button {
@@ -490,7 +490,7 @@ ul {
   padding: 20px;
   text-align: center;
   justify-content: center;
-  background-color: #8e017a;
+  background-color: #2e31925e;
   font-family: var(--font-second);
   font-size: 20px;
   font-weight: bold;
@@ -525,6 +525,9 @@ ul {
 .badge-img {
   width: 24%;
 }
+
+
+
 
 /* Responsive design */
 
@@ -633,11 +636,7 @@ ul {
     padding-top: 3px;
   }
 
-  .response-button {
-    padding: 10px;
-    margin: 10px;
-    width: 33vw;
-  }
+
   .player-infos-container1 {
     display: flex;
     width: 100%;

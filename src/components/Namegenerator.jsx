@@ -1,21 +1,25 @@
-import { useState } from "react";
-import { Button } from "@mui/material";
+import { useState, useEffect } from "react";
 import { animalArray, adjectifArray } from "./Names";
 import Avatar from "./Avatar";
+import { Link } from "react-router-dom";
 
-const Namegenerator = ({ onNameSelected }) => {
+const Namegenerator = ({ onNameSelected, username }) => {
   const [name, setName] = useState("?");
-  const [randomName, setRandomName] = useState();
+  const [randomName, setRandomName] = useState("");
+  const [isNamePicked, setPickedName] = useState(false);
 
   function randomNumber(array) {
     return Math.floor(Math.random() * array.length);
   }
-
   function getRandomName() {
     let animal = animalArray[randomNumber(animalArray)];
     let adjective = adjectifArray[randomNumber(adjectifArray)];
     setRandomName(adjective + animal);
   }
+
+  useEffect(() => {
+    getRandomName();
+  }, [name]);
 
   function setUserName() {
     setName(randomName);
@@ -25,26 +29,26 @@ const Namegenerator = ({ onNameSelected }) => {
     <>
       <Avatar randomName={randomName} />
       <div className="username">
-        <p className="random-username">{randomName}</p>{" "}
-        {randomName && (
-          <Button
-            className="button-pickit"
-            variant="contained"
-            color="secondary"
-            onClick={setUserName}
-          >
-            PICK IT
-          </Button>
-        )}
+        {isNamePicked ? <p className="random-username">{username}</p> : null}
       </div>
-      <Button
-        className="button-generate-username"
-        variant="contained"
-        color="secondary"
-        onClick={getRandomName}
+      <button
+        type="button"
+        className="play-button"
+        onClick={() => {
+          setUserName(), setPickedName(true);
+        }}
       >
-        Click to generate a random name
-      </Button>
+        Generate a random name
+      </button>
+      {isNamePicked ? (
+        <div className="play-button-container">
+          <Link to="/settings">
+            <button type="button" className="play-button">
+              Go !
+            </button>
+          </Link>
+        </div>
+      ) : null}
     </>
   );
 };

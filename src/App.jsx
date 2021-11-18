@@ -1,4 +1,5 @@
 import './App.css';
+import './style.scss';
 import { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
@@ -11,14 +12,14 @@ import Rules3 from './components/Rules3';
 import UrlContext from './Contexts/UrlContext';
 
 function App() {
-  const [username, setUsername] = useState('Choose your username below ');
+  const [username, setUsername] = useState('Choose  username below ');
   const [url, setUrl] = useState();
   const [difficulty, setDifficulty] = useState('');
   const [category, setCategory] = useState('');
   const [finalScore, setFinalScore] = useState(0);
 
-  function onUserNameChange(newUsername) {
-    setUsername(newUsername);
+  function onUserNameChange(randomName) {
+    setUsername(randomName);
   }
 
   async function onFinish(finishScore) {
