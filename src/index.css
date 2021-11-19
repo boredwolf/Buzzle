@@ -744,12 +744,16 @@ tr:hover {
     text-transform: capitalize;
   }
 
+  .container-leaderbord {
+    width: 90vw;
+  }
+
   #leaderboard {
     width:100%;
   }
 
   .table-container {
-    padding: 2vw;
+    padding: 1vw;
   }  
 
 .avatar-leaderboard {
@@ -765,6 +769,9 @@ td, th {
 
 th {
   font-size: 1.1em;
+}
+.end-button{
+  margin: 0 10px 10px 10px;
 }
 
 }
