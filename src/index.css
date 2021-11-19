@@ -56,8 +56,12 @@ h3 {
   font-size: 1.6em;
   text-shadow: 1px 1px 2px black;
 }
-
-
+.help-icon {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 5px;
+  padding-right: 5px;
+}
 
 /* CSS home */
 
@@ -241,7 +245,7 @@ h3 {
   background-color: rgba(222, 210, 40, 0.15);
   border-radius: 30px;
   border: 5px solid var(--color-second);
-  width: 100%;
+  width: 70vw;
   margin-bottom: 20px;
 }
 
@@ -358,7 +362,7 @@ h3 {
 .welcome-container1 {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 90vh;
 }
 
 .welcome-container2 {
@@ -720,6 +724,10 @@ tr:hover {
 
   .questions {
     text-align: center;
+  }
+
+  .endgame-container {
+    width: 90vw;
   }
 
   .endgame-buttons {

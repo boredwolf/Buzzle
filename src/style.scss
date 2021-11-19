@@ -245,15 +245,15 @@
       $numOfColBlocks: 3; // must be higher than 2
       $deg: 360deg / $numOfColBlocks;
       
-      $red: #FD3359;
+      $violet: #9200F0;
       $yellow: #F4D302;
-      $blue: #21BDFF;
-      
+      $pink: #bb43aa;
+  
       $blocksColors: (
-        1: $red,
-        2: $yellow,
-        3: $blue
-      );
+       1: $violet,
+       2: $yellow,
+       3: $pink
+  );
       
       
       $size: 100px;

@@ -1,7 +1,7 @@
 import './App.css';
 import './style.scss';
 import { useState } from 'react';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HelpIcon from '@mui/icons-material/Help';
 import Home from './components/Home';
 import Questions from './components/Questions';
@@ -39,12 +39,13 @@ function App() {
 
   return (
     <>
-      <div onClick={() => setShow(true)}><HelpIcon /></div>
+      <div className="help-icon" onClick={() => setShow(true)}>
+        <HelpIcon />
+      </div>
       <Modal onClose={() => setShow(false)} show={show}>
         <p>This is modal body</p>
       </Modal>
       <BrowserRouter>
-
         <UrlContext.Provider
           value={{
             url,
