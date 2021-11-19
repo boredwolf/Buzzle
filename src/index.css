@@ -552,6 +552,7 @@ table {
   font-size: 0.8em;
   padding-top: 1vh;
   text-align: center;
+  width: 80vw;
 }
 
 th {
@@ -738,8 +739,10 @@ tr:hover {
 }  
 
 .avatar-leaderboard {
-width: 40%;
+width: 4vw;
 }
+
+
 
 td, th {
   padding-left: 0;
@@ -747,6 +750,12 @@ td, th {
   padding-top: 0;
   padding-bottom: 0;
 }
-}
 
 /* End Responsive design */
+.medal {
+  width: 4vw;
+}
+.avatar-leaderboard {
+  width: 4vw;
+}
+  
