@@ -24,28 +24,34 @@ const Scores = () => {
           </div>
         </div>
       </div>
-      <div className="questions-container">
+      <div className="questions-container" id="leaderboard">
         <div className="container-leaderbord">
           <h2>LeaderBoard</h2>
           <div className="table-container">
             <ul className="ul-list">
               <table>
                 <thead>
-                <tr>
-                  <th>Ranking</th>
-                  <th>Avatar</th>
-                  <th>UserName</th>
-                  <th>Score</th>
-                </tr>
+                  <tr>
+                    <th>Ranking</th>
+                    <th>Avatar</th>
+                    <th>UserName</th>
+                    <th>Score</th>
+                  </tr>
                 </thead>
                 <tbody>
                   {leaderboard.map((classement, index) => (
                     <tr className="list-theme">
                       <td>
-                        {index == 0 ? <img className="medal" src={medal1} alt="Medal1"/> : 
-                        index == 1 ? <img  className="medal" src={medal2} alt="Medal2"/> :
-                        index == 2 ? <img className="medal" src={medal3} alt="Medal3"/> : index +1}
-                  </td>
+                        {index == 0 ? (
+                          <img className="medal" src={medal1} alt="Medal1" />
+                        ) : index == 1 ? (
+                          <img className="medal" src={medal2} alt="Medal2" />
+                        ) : index == 2 ? (
+                          <img className="medal" src={medal3} alt="Medal3" />
+                        ) : (
+                          index + 1
+                        )}
+                      </td>
                       <td>
                         <img
                           src={`https://avatars.dicebear.com/api/personas/${classement.username}.svg`}

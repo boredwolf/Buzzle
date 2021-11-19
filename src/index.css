@@ -30,7 +30,9 @@ body {
 
 .logo {
   width: 11rem;
+  padding-bottom: 5px;
 }
+
 .logo-questions {
   position: absolute;
   top: 10px;
@@ -67,6 +69,8 @@ h3 {
 .rules {
   display: flex;
   justify-content: flex-end;
+  padding-top: 5px;
+  padding-right: 5px;
 }
 
 .home-logo-help-container {
@@ -424,6 +428,7 @@ a {
   width: 70vw;
   position: fixed;
   bottom: 0;
+  padding-bottom: 3px;
 }
 
 .player-infos-container2 {
@@ -545,14 +550,15 @@ ul {
   background-color: rgba(222, 210, 40, 0.15);
   border-radius: 30px;
   border: 5px solid var(--color-second);
-  width: 100%;
+  width: 70vw;
   margin-bottom: 20px;}
+
 
 table {
   font-size: 0.8em;
   padding-top: 1vh;
   text-align: center;
-  width: 80vw;
+  width: 100%;
 }
 
 th {
@@ -572,21 +578,15 @@ tr:hover {
   font-weight: bold;
 }
 
-
-
-/* Responsive design */
- @media screen and (max-width: 480px){
- 
-  .question {
-    font-size: 1em;
-  }
-
-  .response-button{
-    width: 100%;
-    padding: 10px;
-  }
+.medal {
+  width: 4vw;
+}
+.avatar-leaderboard {
+  width: 4vw;
 }
 
+
+/* --------Responsive Design ---------------------------------------------------------*/
 
 @media screen and (max-width: 780px) {
 
@@ -672,6 +672,7 @@ tr:hover {
   #logo-questions {
     margin: 0;
   }
+
   .timer {
     font-size: 1.3em;
     width: 33px;
@@ -730,19 +731,22 @@ tr:hover {
   .infos-endgame {
     font-size: 20px;
   }
+  
 .username-cap {
     text-transform: capitalize;
   }
 
-.table-container {
-  padding: 2vw;
-}  
+  #leaderboard {
+    width:100%;
+  }
+
+  .table-container {
+    padding: 2vw;
+  }  
 
 .avatar-leaderboard {
 width: 4vw;
 }
-
-
 
 td, th {
   padding-left: 0;
@@ -750,11 +754,22 @@ td, th {
   padding-top: 0;
   padding-bottom: 0;
 }
+
+th {
+  font-size: 1.1em;
 }
-/* End Responsive design */
-.medal {
-  width: 4vw;
+
 }
-.avatar-leaderboard {
-  width: 4vw;
+
+/* Responsive design  Mobile*/
+@media screen and (max-width: 480px){
+ 
+  .question {
+    font-size: 1em;
+  }
+
+  .response-button{
+    width: 100%;
+    padding: 10px;
+  }
 }
