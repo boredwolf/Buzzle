@@ -2,7 +2,7 @@
   --color-primary: #2e3192;
   --color-second: #ffffff;
   --font-primary: 'Roboto', sans-serif;
-  --font-second: 'Alfa Slab One', cursive;
+  --font-second: 'Righteous', cursive;
 }
 
 * {
@@ -264,7 +264,7 @@ h3 {
   margin: 20px;
   width: 80%;
   text-shadow: 1px 1px 2px black;
-  font-size: 1.5em;
+  font-size: 2em;
   font-family: var(--font-second);
   color: var(--color-second);
 }
@@ -750,7 +750,7 @@ td, th {
   padding-top: 0;
   padding-bottom: 0;
 }
-
+}
 /* End Responsive design */
 .medal {
   width: 4vw;
@@ -758,4 +758,3 @@ td, th {
 .avatar-leaderboard {
   width: 4vw;
 }
-  

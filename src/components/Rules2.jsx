@@ -38,7 +38,9 @@ const Rules2 = () => {
         >
           Hard
         </li>
+      
       </ul>
+      
     </div>
   );
 };

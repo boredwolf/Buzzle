@@ -39,7 +39,7 @@ const EndGame = ({ username, score }) => {
                   <span className="username-cap">{username}</span> {quote}
                 </p>
                 <div className="endgame-buttons">
-                  <NavLink exact to="/questions">
+                  <NavLink exact to="/settings">
                     <button type="button" className="end-button">
                       Replay
                     </button>
