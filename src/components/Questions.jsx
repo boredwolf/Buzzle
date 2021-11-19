@@ -46,7 +46,7 @@ function Questions({ username, onFinish }) {
     if (!showAnswers) {
       // Prevent double answers
       // set score and life if correct answer or not
-      if (answer === questions[qInd].correct_answer && goodAnswer >= 4 && life != 3) {
+      if (answer === questions[qInd].correct_answer && goodAnswer >= 2 && life != 3) {
         setScore(score + 100);
         setLife(life + 1);
         setGoodAndwer(0);
@@ -60,8 +60,6 @@ function Questions({ username, onFinish }) {
         setLife(life - 1);
         setAnswered(true);
       }
-      console.log(goodAnswer)
-console.log(life)
       setCounter(TIME_FOR_SHOWING_ANSWERS);
       setShowAnswers(true);
     }
