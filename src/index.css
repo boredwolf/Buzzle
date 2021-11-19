@@ -761,6 +761,37 @@ th {
 
 }
 
+/* End Responsive design */
+
+
+.modal-content {
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+}
+
+.modal {
+  background: linear-gradient(
+45deg, #8e017a, #290180);
+position: fixed;
+top:0;
+left: 0;
+width: 100%;
+height: 100vh;
+}
+
+.button-exit-rules {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.button-rules {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 /* Responsive design  Mobile*/
 @media screen and (max-width: 480px){
  

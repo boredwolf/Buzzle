@@ -11,6 +11,7 @@ import Scores from './components/Scores';
 import Settings from './components/Settings';
 import Rules3 from './components/Rules3';
 import UrlContext from './Contexts/UrlContext';
+import Modal from './components/Modal';
 
 function App() {
   const [username, setUsername] = useState('Choose  username below ');
@@ -18,6 +19,7 @@ function App() {
   const [difficulty, setDifficulty] = useState('');
   const [category, setCategory] = useState('');
   const [finalScore, setFinalScore] = useState(0);
+  const [show, setShow] = useState(false);
 
   function onUserNameChange(randomName) {
     setUsername(randomName);
@@ -36,50 +38,52 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <div className="rules">
-        <Link to="/rules3">
-          <HelpIcon />
-        </Link>
-      </div>
-      <UrlContext.Provider
-        value={{
-          url,
-          setUrl,
-          difficulty,
-          setDifficulty,
-          category,
-          setCategory,
-        }}
-      >
-        <Switch>
-          <Route exact path="/">
-            <Welcome />
-          </Route>
-          <Route path="/home">
-            <Home username={username} onUserNameChange={onUserNameChange} />
-          </Route>
-          <Route exact path="/settings">
-            <Settings username={username} />
-          </Route>
-          <Route path="/questions">
-            <Questions
-              username={username}
-              onFinish={(score) => onFinish(score)}
-            />
-          </Route>
-          <Route path="/endgame">
-            <EndGame username={username} score={finalScore} />
-          </Route>
-          <Route path="/scores">
-            <Scores />
-          </Route>
-          <Route path="/rules3">
-            <Rules3 />
-          </Route>
-        </Switch>
-      </UrlContext.Provider>
-    </BrowserRouter>
+    <>
+      <div onClick={() => setShow(true)}><HelpIcon /></div>
+      <Modal onClose={() => setShow(false)} show={show}>
+        <p>This is modal body</p>
+      </Modal>
+      <BrowserRouter>
+
+        <UrlContext.Provider
+          value={{
+            url,
+            setUrl,
+            difficulty,
+            setDifficulty,
+            category,
+            setCategory,
+          }}
+        >
+          <Switch>
+            <Route exact path="/">
+              <Welcome />
+            </Route>
+            <Route path="/home">
+              <Home username={username} onUserNameChange={onUserNameChange} />
+            </Route>
+            <Route exact path="/settings">
+              <Settings username={username} />
+            </Route>
+            <Route path="/questions">
+              <Questions
+                username={username}
+                onFinish={(score) => onFinish(score)}
+              />
+            </Route>
+            <Route path="/endgame">
+              <EndGame username={username} score={finalScore} />
+            </Route>
+            <Route path="/scores">
+              <Scores />
+            </Route>
+            <Route path="/rules3">
+              <Rules3 />
+            </Route>
+          </Switch>
+        </UrlContext.Provider>
+      </BrowserRouter>
+    </>
   );
 }
 
